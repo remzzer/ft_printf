@@ -3,16 +3,32 @@
 
 int		main(void)
 {
-	//void	*ptr = NULL;
-	ft_printf("%c\n%s\n%d\n%x\n%X\n", 'r', "yolo", 11, 10, 10);
-	//printf("%p", ptr);
-	//char	*res;
-	//res = ft_itoa_hex(10);
-	//printf("res:%s", res);
-	//printf("Res= "_real:%x", 10);
-	//char	str[] = "bonjour";
-	//char	*str_1 =  "bonjour";
-	//printf("%s", ft_Capital(str_1));
+//====================TEST GLOBAL==============//
+	//ft_printf("char:%c\n str:%s\n dec:%d\n hex:%x\n HEX:%X\n", 'r', "yolo", 11, 10, 10);
 
-	return(0);
+//========DECIMAL==============================//
+
+//flags
+	printf("vreal:%05d\n", 5);
+	printf("vreal:%-5d\n", 5);
+
+//width
+
+	printf("vreal:%-*d\n", 2, 5);
+	printf("vreal:%0*d\n", 2, 5);
+	printf("vreal:%5d\n", 2);
+
+//precision
+
+	printf("vreal:%.2d\n", 2);
+	printf("vreal:%.*d\n", 6, 1);
+	//ft_printf("Myprintf:%-5d",5);
+	//ft_printf("Myprintf:%-5d\n",5);
+//=====================CHAR===================//
+
+
+
+//=====================str===================//
+	return (0);
+
 }

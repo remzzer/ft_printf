@@ -8,6 +8,8 @@
 typedef struct	data_store
 {
 int		width;
+int		precision;
+int		left_align;
 int		zero;
 int		printed;
 int		index;
@@ -18,11 +20,11 @@ int		type_flags;
 //ft_printf.c
 int		ft_printf(const char *str, ...);
 int		find_id_flags(char c);
+int		update_struct(const char *str, str_spec *format);
 void	ft_print_args(str_spec *format, va_list args);
 
 //initialize.c
 void	init_struct(str_spec *format);
-int		set_flag_params(int n, str_spec *format);
 
 //function_help.c
 int		ft_printchar_fd(char c, str_spec *format);

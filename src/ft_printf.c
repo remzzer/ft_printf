@@ -37,11 +37,31 @@ int		find_id_flags(char c)
 	return (-1);
 }
 
+int		update_struct(const char *str, str_spec *format)
+{
+	while(str[format->index])
+	{
+		if (str[format->index] == '0')
+		{
+			format->zero = 1;
+			//printf("zero:%d", format->zero);
+		}
+		else if (str[format->index] == '-')
+		{
+			format->left_align = 1;
+			//printf("left:%d", format->left_align);
+		}
+		else if ((format->type_flags = find_id_flags(str[format->index])) != -1)
+			return(format->type_flags);
+		format->index++;
+	}
+	return (0);
+}
+
 int		ft_printf(const char *str, ...)
 {
 	str_spec	format;
-	va_list	list;
-	int		type;
+	va_list		list;
 
 	format.printed = 0;
 	format.index = 0;
@@ -51,10 +71,8 @@ int		ft_printf(const char *str, ...)
 		init_struct(&format);
 		if (str[format.index] == '%' && str[format.index + 1] != '\0')
 		{
-			if (find_id_flags(str[format.index + 1]) > -1)
-				type = set_flag_params(find_id_flags(str[format.index + 1]), &format);
-				format.index++; //on n'imprime pas les flags
-				ft_print_args(&format, list);
+			update_struct(str, &format);
+			ft_print_args(&format, list);
 		}
 		else
 			ft_printchar_fd(str[format.index], &format);
