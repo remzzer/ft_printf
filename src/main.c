@@ -5,10 +5,11 @@ int		main(void)
 {
 //====================TEST GLOBAL==============//
 	//ft_printf("char:%c\n str:%s\n dec:%d\n hex:%x\n HEX:%X\n", 'r', "yolo", 11, 10, 10);
-	//ft_printf("star:%-*d", 3, 5);
-	ft_printf("star:%.*d", 3, 5);
-
-//========DECIMAL==============================//
+	//ft_printf("star:%0*d", 3, 5);
+	//printf("star:%.*d", 5, 2);
+	ft_printf("star:%.5d\n", 5);
+	//ft_atoi_n()
+//========DECIMAL================"star:%*==============//
 /*
 //flags
 	printf("vreal:%05d\n", 5);

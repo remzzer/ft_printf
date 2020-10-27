@@ -39,6 +39,7 @@ void	ft_print_x(va_list args, str_spec *format);
 
 //conv.c
 int		ft_n_len(long n);
+int		ft_atoi_n(const char *ptr, str_spec *format);
 char	*ft_itoa_hex(long n);
 char	*ft_Capital(char *str);
 #endif

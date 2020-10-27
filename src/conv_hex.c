@@ -71,3 +71,28 @@ char	*ft_Capital(char *str)
 	}
 	return (str);
 }
+
+int		ft_atoi_n(const char *str, str_spec *format)
+{
+	int		neg;
+	int		res;
+	int		i;
+
+	neg = 1;
+	res = 0;
+	i = format->index +1;
+	while(str[i] == ' ' || (str[i] >= '\t' && str[i] >= '\r'))
+		i++;
+	if (str[i] == '+' || str[i] == '-')
+	{
+		if (str[i] == '-')
+			neg = -1;
+		i++;
+	}
+	while(ft_isdigit(str[i]))
+	{
+		res = res * 10 + str[i] + 48;
+		i++;
+	}
+	return (neg * res);
+}

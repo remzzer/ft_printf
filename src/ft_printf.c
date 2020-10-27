@@ -51,15 +51,17 @@ int		update_struct(const char *str, str_spec *format, va_list list)
 			format->left_align = 1;
 			printf("left:%d", format->left_align);
 		}
-		else if (str[format->index] == '*' && str[format->index + 1] != '\0')
+		else if (str[format->index] == '*' && str[format->index -1] != '.')
 		{
 			format->width = va_arg(list, int);
 			printf("width:%d", format->width);
 		}
-		else if (str[format->index] == '.' && str[format->index + 1] == '*')
+		else if (str[format->index] == '.')
 		{
-			format->precision = va_arg(list, int);
-			printf("pre:%d", format->precision);
+			(str[format->index + 1] == '*')
+			? (format->precision = va_arg(list, int))
+			: (format->precision = ft_atoi_n(&str[format->index + 1], format));
+			printf("precision:%d", format->precision);
 		}
 		else if ((format->type_flags = find_id_flags(str[format->index])) != -1)
 			return(format->type_flags);
