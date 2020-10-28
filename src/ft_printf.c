@@ -63,6 +63,14 @@ int		update_struct(const char *str, str_spec *format, va_list list)
 			: (format->precision = ft_atoi_n(&str[format->index + 1], format));
 			printf("precision:%d", format->precision);
 		}
+		else if (ft_isdigit(str[format->index]) && str[format->index] != '0')
+		{
+			//printf(" \n pos:%c\n", str[format->index]);
+			//printf(" \n dex:%d\n", format->index);
+			format->width = 4;//ft_atoi_n(&str[format->index], format);
+			printf("outside");
+			printf("width:%d", format->width);
+		}
 		else if ((format->type_flags = find_id_flags(str[format->index])) != -1)
 			return(format->type_flags);
 		format->index++;
@@ -81,7 +89,7 @@ int		ft_printf(const char *str, ...)
 	while (str[format.index] != '\0')
 	{
 		init_struct(&format);
-		if (str[format.index] == '%' && str[format.index + 1] != '\0')
+		if (str[format.index] == '%' && str[format.index] != '\0')
 		{
 			update_struct(str, &format, list);
 			ft_print_args(&format, list);

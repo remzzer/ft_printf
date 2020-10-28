@@ -80,8 +80,9 @@ int		ft_atoi_n(const char *str, str_spec *format)
 
 	neg = 1;
 	res = 0;
-	i = format->index +1;
-	while(str[i] == ' ' || (str[i] >= '\t' && str[i] >= '\r'))
+	i = 0;
+	if (str[i]== ' ' || str[i] == '\f' || str[i] == '\n'
+		|| str[i] == '\r' || str[i] == '\t' || str[i] == '\v')
 		i++;
 	if (str[i] == '+' || str[i] == '-')
 	{
@@ -91,8 +92,13 @@ int		ft_atoi_n(const char *str, str_spec *format)
 	}
 	while(ft_isdigit(str[i]))
 	{
-		res = res * 10 + str[i] + 48;
+		printf("truc:%d\n", ft_isdigit(str[i]));
+		printf("i:%d\n", i);
+		res = (res * 10) + (str[i] - 48);
 		i++;
+		format->index++;
+		printf("la\n");
 	}
+	//printf("la");
 	return (neg * res);
 }
