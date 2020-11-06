@@ -15,9 +15,7 @@ void	ft_print_args(str_spec *format, va_list args)
 	//	ft_print_i(args, format);
 	//if (format->type_flags == 5)
 	//	ft_print_u(args, format);
-	if (format->type_flags == 6)
-		ft_print_x(args, format);
-	if (format->type_flags == 7)
+	if (format->type_flags == 6 || format->type_flags == 7)
 		ft_print_x(args, format);
 }
 
@@ -35,6 +33,14 @@ int		find_id_flags(char c)
 		index++;
 	}
 	return (-1);
+}
+
+int		fix_struct(str_spec *format)
+{
+	if (format->precision < 0)
+		format->precision = -1;
+	printf("precision:%d", format->precision);
+	return (1);
 }
 
 int		update_struct(const char *str, str_spec *format, va_list list)
@@ -61,18 +67,15 @@ int		update_struct(const char *str, str_spec *format, va_list list)
 			(str[format->index + 1] == '*')
 			? (format->precision = va_arg(list, int))
 			: (format->precision = ft_atoi_n(&str[format->index + 1], format));
-			printf("precision:%d", format->precision);
 		}
 		else if (ft_isdigit(str[format->index]) && str[format->index] != '0')
 		{
-			//printf(" \n pos:%c\n", str[format->index]);
-			//printf(" \n dex:%d\n", format->index);
-			format->width = 4;//ft_atoi_n(&str[format->index], format);
-			printf("outside");
-			printf("width:%d", format->width);
+			if (str[format->index -1] != '.' )
+				format->width = ft_atoi_n(&str[format->index], format);
+				printf("width:%d", format->width);
 		}
 		else if ((format->type_flags = find_id_flags(str[format->index])) != -1)
-			return(format->type_flags);
+			return(fix_struct(format));//TESTING SHITS
 		format->index++;
 	}
 	return (0);

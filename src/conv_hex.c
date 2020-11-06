@@ -92,13 +92,10 @@ int		ft_atoi_n(const char *str, str_spec *format)
 	}
 	while(ft_isdigit(str[i]))
 	{
-		printf("truc:%d\n", ft_isdigit(str[i]));
-		printf("i:%d\n", i);
 		res = (res * 10) + (str[i] - 48);
 		i++;
 		format->index++;
-		printf("la\n");
 	}
-	//printf("la");
+	format->index--;
 	return (neg * res);
 }

@@ -29,6 +29,8 @@ void	init_struct(str_spec *format);
 //function_help.c
 int		ft_printchar_fd(char c, str_spec *format);
 int		ft_printstr_fd(char *str, str_spec *format);
+int		ft_printstr_pre(char *str, str_spec *format);
+int		ft_printstr_width(char *str, str_spec *format);
 int		ft_printd_fd(int n, str_spec *format);
 
 //printed_flags.c

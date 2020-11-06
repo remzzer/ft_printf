@@ -3,7 +3,7 @@
 
 void	init_struct(str_spec *format)
 {
-	format->precision = 0; //argument++ & with
+	format->precision = -1; //argument++ & with
 	format->width = 0; //largeur
 	format->left_align = 0; //ajuster gauche
 	format->zero =  0; //padding
