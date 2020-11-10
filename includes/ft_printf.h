@@ -31,7 +31,10 @@ int		ft_printchar_fd(char c, str_spec *format);
 int		ft_printstr_fd(char *str, str_spec *format);
 int		ft_printstr_pre(char *str, str_spec *format);
 int		ft_printstr_width(char *str, str_spec *format);
+
+//function_help_2.c
 int		ft_printd_fd(int n, str_spec *format);
+
 
 //printed_flags.c
 void	ft_print_c(va_list args, str_spec *format);

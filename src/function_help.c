@@ -44,7 +44,7 @@ int		ft_printstr_width(char *str, str_spec *format)
 	int		i;
 
 	len =  ft_strlen(str);
-	if (format->width > len)
+	if (format->width > len && format->left_align == 0)
 	{
 		while (format->width > len)
 		{
@@ -53,12 +53,24 @@ int		ft_printstr_width(char *str, str_spec *format)
 			format->printed++;
 		}
 	}
+	else if (format->width < 0)
+	{
+		format->width *= -1;
+		format->left_align = 1;
+		//printf("n_width%d\n", len);
+	}
 	i = 0;
 	while (len > i)
 	{
 		ft_putchar_fd(str[i], 1);
 		format->printed++;
 		i++;
+	}
+	while (format->width > len)
+	{
+		ft_putchar_fd(' ', 1);
+		format->width--;
+		format->printed++;
 	}
 	return (format->printed);
 }

@@ -39,7 +39,7 @@ int		fix_struct(str_spec *format)
 {
 	if (format->precision < 0)
 		format->precision = -1;
-	printf("precision:%d", format->precision);
+	//printf("precision:%d", format->precision);
 	return (1);
 }
 
@@ -60,7 +60,7 @@ int		update_struct(const char *str, str_spec *format, va_list list)
 		else if (str[format->index] == '*' && str[format->index -1] != '.')
 		{
 			format->width = va_arg(list, int);
-			printf("width:%d", format->width);
+			//printf("width:%d", format->width);
 		}
 		else if (str[format->index] == '.')
 		{

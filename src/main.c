@@ -56,16 +56,18 @@ int		res = 0;
 //printf("Real: %s\n", "exemple");
 
 //WIDTH
-//ft_printf("Myprintf: %15s\n", "exemple"); //exemple
-//printf("Real: %15s\n", "exemple"); //_______exemple
-//ft_printf("Myprintf: %-15s\n", "exemple"); //exemple
-//printf("Real: %-15s\n", "exemple"); //exemple
-//res = ft_printf("REAL: %*s\n", 15, "exemple"); //exemple
-//res = printf("REAL: %*s\n", 15, "exemple"); //_______exemple
-//res = ft_printf("REAL: %*s\n", 6, "exemple"); //_______exemple
-//res = printf("REAL: %*s\n", 6, "exemple"); //_______exemple
-res = ft_printf("REAL:%*s\n", -15, "exemple"); //exemple
-//res = printf("REAL:%*s\n", -5, "exemple"); //exemple
+//res = ft_printf("Real: %15s\n", "exemple"); //_______exemple OK
+//res = printf("Real: %15s\n", "exemple"); //_______exemple OK
+//res = ft_printf("Real: %-15s|\n", "exemple"); //exemple OK
+res = printf("Real: %-15s|\n", "exemple"); //exemple OK
+//res = ft_printf("REAL: %*s\n", 15, "exemple"); //_______exemple OK
+//res = printf("REAL: %*s\n", 15, "exemple"); //_______exemple OK
+//res = ft_printf("REAL: %*s\n", 6, "exemple"); //exemple OK
+//res = printf("REAL: %*s\n", 6, "exemple"); //exemple  OK
+//res = ft_printf("REAL: %*s\n", -6, "exemple"); //exemple  OK
+//res = printf("REAL: %*s\n", -6, "exemple"); //exemple  OK
+//res = ft_printf("REAL:%*s|\n", -15, "exemple"); //exemple________
+//res = printf("REAL:%*s|\n", -15, "exemple"); //exemple________
 
 //PRECISION
 //ft_printf("Myprintf: %.7s\n", "exemple"); //exemple
