@@ -8,6 +8,13 @@ int		ft_printchar_fd(char c, str_spec *format)
 	return (format->printed);
 }
 
+int		ft_printstr_fd(char *str, str_spec *format)
+{
+	write(1, &str[0], ft_strlen(str));
+	format->printed += ft_strlen(str);
+	return (format->printed);
+}
+
 int		ft_printstr_pre(char *str, str_spec *format)
 {
 	int		len;
@@ -41,7 +48,6 @@ int		ft_printstr_pre(char *str, str_spec *format)
 int		ft_printstr_width(char *str, str_spec *format)
 {
 	int		len;
-	int		i;
 
 	len =  ft_strlen(str);
 	if (format->width > len && format->left_align == 0)
@@ -52,26 +58,32 @@ int		ft_printstr_width(char *str, str_spec *format)
 			format->width--;
 			format->printed++;
 		}
+		ft_printstr_fd(str, format);
 	}
 	else if (format->width < 0)
 	{
 		format->width *= -1;
 		format->left_align = 1;
-		//printf("n_width%d\n", len);
+		while (format->width > len)
+		{
+			ft_putchar_fd(' ', 1);
+			format->width--;
+			format->printed++;
+		}
+		ft_printstr_fd(str, format);
 	}
-	i = 0;
-	while (len > i)
+	else if (format->width > len && format->left_align != 0)
 	{
-		ft_putchar_fd(str[i], 1);
-		format->printed++;
-		i++;
+		ft_printstr_fd(str, format);
+		while (format->width > len)
+		{
+			ft_putchar_fd(' ', 1);
+			format->width--;
+			format->printed++;
+		}
 	}
-	while (format->width > len)
-	{
-		ft_putchar_fd(' ', 1);
-		format->width--;
-		format->printed++;
-	}
+	else
+		ft_printstr_fd(str, format);
 	return (format->printed);
 }
 

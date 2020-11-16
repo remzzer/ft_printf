@@ -6,8 +6,16 @@ void	ft_print_c(va_list list, str_spec *format)
 	char	c;
 
 	c = va_arg(list, int);
-	if (format->left_align != 0)
+	if (format->left_align != 0 && format->width != 0)
+	{
 		ft_printchar_fd(c, format);
+		while (format->width -1 > 0)
+		{
+			ft_putchar_fd(' ', 1);
+			format->printed++;
+			format->width--;
+		}
+	}
 	else
 	{
 		while (format->width -1 > 0)
@@ -16,7 +24,7 @@ void	ft_print_c(va_list list, str_spec *format)
 			format->printed++;
 			format->width--;
 		}
-		ft_putchar_fd(c, 1);
+		ft_printchar_fd(c, format);
 	}
 }
 

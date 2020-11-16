@@ -3,6 +3,7 @@
 
 int		main(void)
 {
+int		res = 0;
 //====================TEST GLOBAL==============//
 	//ft_printf("char:%c\n str:%s\n dec:%d\n hex:%x\n HEX:%X\n", 'r', "yolo", 11, 10, 10);
 	//ft_printf("star:%0*d", 3, 5);
@@ -43,23 +44,22 @@ int		main(void)
 
 //=====================CHAR===================//
 
-//ft_printf("Myprintf:%5c\n", 'r'); //____r OK
-//printf("real:%5c\n", 's'); //____s OK
-//ft_printf("Myprintf:%-5c\n", 'r'); //r OK
-//printf("real:%-5c\n", 's'); //s OK
+//res = ft_printf("Myprintf:%5c\n", 's'); //____r OK
+//res = printf("Myprintf:%5c\n", 's'); //____s OK
+//res = ft_printf("Myprintf:%-2c\n", 'R'); //r OK
+//res = printf("Myprintf:%-2c\n", 'R'); //s OK
 
 //=====================str===================//
 
-int		res = 0;
 //res = ft_printf("Myprintf: %s\n", NULL);
 //res = printf("Myprintf: %s\n", NULL);
 //printf("Real: %s\n", "exemple");
 
 //WIDTH
-//res = ft_printf("Real: %15s\n", "exemple"); //_______exemple OK
+res = ft_printf("Real: %15s\n", "exemple"); //_______exemple OK
 //res = printf("Real: %15s\n", "exemple"); //_______exemple OK
 //res = ft_printf("Real: %-15s|\n", "exemple"); //exemple OK
-res = printf("Real: %-15s|\n", "exemple"); //exemple OK
+//res = printf("Real: %-15s|\n", "exemple"); //exemple OK
 //res = ft_printf("REAL: %*s\n", 15, "exemple"); //_______exemple OK
 //res = printf("REAL: %*s\n", 15, "exemple"); //_______exemple OK
 //res = ft_printf("REAL: %*s\n", 6, "exemple"); //exemple OK
