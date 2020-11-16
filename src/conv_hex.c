@@ -82,7 +82,7 @@ int		ft_atoi_n(const char *str, str_spec *format)
 	res = 0;
 	i = 0;
 	if (str[i]== ' ' || str[i] == '\f' || str[i] == '\n'
-		|| str[i] == '\r' || str[i] == '\t' || str[i] == '\v')
+			|| str[i] == '\r' || str[i] == '\t' || str[i] == '\v')
 		i++;
 	if (str[i] == '+' || str[i] == '-')
 	{
@@ -90,6 +90,8 @@ int		ft_atoi_n(const char *str, str_spec *format)
 			neg = -1;
 		i++;
 	}
+	if (!(str[i] >= '0' && str[i] <= '9'))
+		return (0);
 	while(ft_isdigit(str[i]))
 	{
 		res = (res * 10) + (str[i] - 48);

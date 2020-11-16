@@ -33,15 +33,7 @@ int		ft_printstr_pre(char *str, str_spec *format)
 		}
 	}
 	else
-	{
-		i = 0;
-		while (len > i)
-		{
-			ft_putchar_fd(str[i], 1);
-			format->printed++;
-			i++;
-		}
-	}
+		ft_printstr_fd(str, format);
 	return (format->printed);
 }
 

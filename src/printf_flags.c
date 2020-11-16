@@ -37,7 +37,7 @@ void	ft_print_s(va_list list, str_spec *format)
 		str = "(null)";
 		ft_printstr_pre(str, format);
 	}
-	else if (format->precision != - 1)
+	else if (format->precision != - 1 && format->width == 0)
 		ft_printstr_pre(str, format);
 	else if (format->width != 0)
 		ft_printstr_width(str, format);

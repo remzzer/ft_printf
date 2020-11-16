@@ -39,13 +39,12 @@ int		fix_struct(str_spec *format)
 {
 	if (format->precision < 0)
 		format->precision = -1;
-	//printf("precision:%d", format->precision);
 	return (1);
 }
 
 int		update_struct(const char *str, str_spec *format, va_list list)
 {
-	while(str[format->index])
+	while (str[format->index])
 	{
 		if (str[format->index] == '0')
 		{
@@ -67,15 +66,16 @@ int		update_struct(const char *str, str_spec *format, va_list list)
 			(str[format->index + 1] == '*')
 			? (format->precision = va_arg(list, int))
 			: (format->precision = ft_atoi_n(&str[format->index + 1], format));
+			//printf("pre:%d", format->precision);
 		}
 		else if (ft_isdigit(str[format->index]) && str[format->index] != '0')
 		{
 			if (str[format->index -1] != '.' )
 				format->width = ft_atoi_n(&str[format->index], format);
-			//	printf("width:%d", format->width);
+				//printf("width:%d", format->width);
 		}
 		else if ((format->type_flags = find_id_flags(str[format->index])) != -1)
-			return(fix_struct(format));//TESTING SHITS
+			return(fix_struct(format));
 		format->index++;
 	}
 	return (0);
