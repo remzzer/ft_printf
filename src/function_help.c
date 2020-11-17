@@ -58,13 +58,6 @@ int		ft_printstr_width(char *str, str_spec *format)
 		ft_printspace_fd(' ', format, len);
 		ft_printstr_fd(str, format);
 	}
-	else if (format->width < 0)
-	{
-		format->width *= -1;
-		format->left_align = 1;
-		ft_printspace_fd(' ', format, len);
-		ft_printstr_fd(str, format);
-	}
 	else if (format->width > len && format->left_align != 0)
 	{
 		ft_printstr_fd(str, format);

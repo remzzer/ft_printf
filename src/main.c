@@ -58,11 +58,12 @@ int		res = 0;
 //WIDTH
 //res = ft_printf("Real: %15s\n", "exemple"); //_______exemple OK
 //res = printf("Real: %15s\n", "exemple"); //_______exemple OK
+//res = printf("Real: %5s\n", "exemple"); //_______exemple OK
 //res = ft_printf("Real: %7.5s\n", "yolo"); //
-res = printf("Real: %7.1s\n", "yolo1"); //
+//res = printf("Real: %7.1s\n", "yolo1"); //
 //res = printf("Real: %7s\n", "yolo"); //
 //res = printf("Real: %7s\n", "bombastic"); //
-//res = printf("Real: %7.5s\n", "bombastic"); //__bomba 
+res = printf("Real: %3.5s\n", "bombastic"); //__bomba 
 //res = printf("Real: %.5s\n", "bombastic"); //__bomba 
 //res = ft_printf("Real: %-15s|\n", "exemple"); //exemple OK
 //res = printf("Real: %-15s|\n", "exemple"); //exemple OK
