@@ -8,6 +8,17 @@ int		ft_printchar_fd(char c, str_spec *format)
 	return (format->printed);
 }
 
+int		ft_printspace_fd(char c,  str_spec *format, int len)
+{
+	while (format->width > len)
+	{
+		ft_putchar_fd(c, 1);
+		format->printed++;
+		format->width--;
+	}
+	return (format->printed);
+}
+
 int		ft_printstr_fd(char *str, str_spec *format)
 {
 	write(1, &str[0], ft_strlen(str));
@@ -44,35 +55,20 @@ int		ft_printstr_width(char *str, str_spec *format)
 	len =  ft_strlen(str);
 	if (format->width > len && format->left_align == 0)
 	{
-		while (format->width > len)
-		{
-			ft_putchar_fd(' ', 1);
-			format->width--;
-			format->printed++;
-		}
+		ft_printspace_fd(' ', format, len);
 		ft_printstr_fd(str, format);
 	}
 	else if (format->width < 0)
 	{
 		format->width *= -1;
 		format->left_align = 1;
-		while (format->width > len)
-		{
-			ft_putchar_fd(' ', 1);
-			format->width--;
-			format->printed++;
-		}
+		ft_printspace_fd(' ', format, len);
 		ft_printstr_fd(str, format);
 	}
 	else if (format->width > len && format->left_align != 0)
 	{
 		ft_printstr_fd(str, format);
-		while (format->width > len)
-		{
-			ft_putchar_fd(' ', 1);
-			format->width--;
-			format->printed++;
-		}
+		ft_printspace_fd(' ', format, len);
 	}
 	else
 		ft_printstr_fd(str, format);

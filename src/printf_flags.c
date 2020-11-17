@@ -9,21 +9,11 @@ void	ft_print_c(va_list list, str_spec *format)
 	if (format->left_align != 0 && format->width != 0)
 	{
 		ft_printchar_fd(c, format);
-		while (format->width -1 > 0)
-		{
-			ft_putchar_fd(' ', 1);
-			format->printed++;
-			format->width--;
-		}
+		ft_printspace_fd(' ', format, 1);
 	}
 	else
 	{
-		while (format->width -1 > 0)
-		{
-			ft_putchar_fd(' ', 1);
-			format->printed++;
-			format->width--;
-		}
+		ft_printspace_fd(' ', format, 1);
 		ft_printchar_fd(c, format);
 	}
 }
@@ -35,11 +25,11 @@ void	ft_print_s(va_list list, str_spec *format)
 	if (str == NULL)
 	{
 		str = "(null)";
-		ft_printstr_pre(str, format);
+		ft_printstr_fd(str, format);
 	}
 	else if (format->precision != - 1 && format->width == 0)
 		ft_printstr_pre(str, format);
-	else if (format->width != 0)
+	else if (format->width != 0 )//&& format->precision != -1)
 		ft_printstr_width(str, format);
 	else
 		ft_printstr_pre(str, format);
