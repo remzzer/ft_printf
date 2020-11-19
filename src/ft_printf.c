@@ -72,7 +72,7 @@ int		update_struct(const char *str, str_spec *format, va_list list)
 		{
 			if (str[format->index -1] != '.' )
 				format->width = ft_atoi_n(&str[format->index], format);
-				//printf("width:%d", format->width);
+			//printf("width:%d", format->width);
 		}
 		else if ((format->type_flags = find_id_flags(str[format->index])) != -1)
 			return(fix_struct(format));
