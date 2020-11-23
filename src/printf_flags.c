@@ -25,7 +25,8 @@ void	ft_print_s(va_list list, str_spec *format)
 	if (str == NULL)
 	{
 		str = "(null)";
-		ft_printstr_fd(str, format);
+		//ft_printstr_fd(str, format);
+		ft_printstr_width(str, format);
 	}
 	else if (format->precision != - 1 && format->width == 0)
 	{
