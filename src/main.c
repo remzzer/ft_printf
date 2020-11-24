@@ -60,10 +60,10 @@ int		res = 0;
 //res = printf("Real: %15s\n", "exemple"); //_______exemple OK
 //res = printf("Real: %5s\n", "exemple"); //_______exemple OK
 //res = ft_printf("Real: %7.5s\n", "yolo"); //
-//res = printf("Real: %7.1s\n", "yolo1"); //
-//res = printf("Real:%7.5s\n", "yolo"); //
+//res = ft_printf("Real: %.01s\n", "yolo1"); //
+//res = printf("Real:%.09s|\n", "yolo"); //
 //res = ft_printf("Real:%7.5s\n", "yolo"); //
-res = ft_printf("Real: %-7.5s|\n", "tubular"); //
+//res = ft_printf("Real: %-7.5s|\n", "tubular"); //
 //res = printf("Real: %-7.5s|\n", "tubular"); //
 //res = ft_printf("Real: %-15s|\n", "exemple"); //exemple OK
 //res = printf("Real: %-15s|\n", "exemple"); //exemple OK
@@ -88,6 +88,11 @@ res = ft_printf("Real: %-7.5s|\n", "tubular"); //
 
 //printf("Real:%s\n", NULL); //(null)
 //ft_printf("Myprintf:%s\n", NULL);
+//res = ft_printf("real:%.19s\n", NULL);
+//res = printf("real:%.19s\n", NULL);
+//res = ft_printf("real:%.09s\n", NULL);
+res = ft_printf("real:%3.6s|\n", "");
+//res = printf("real:%3.6s|\n", "");
 
 
 //res = ft_printf("Myprintf:%.*s\n", 3, "exemple"); //exemple

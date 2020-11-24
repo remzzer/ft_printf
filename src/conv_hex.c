@@ -92,12 +92,22 @@ int		ft_atoi_n(const char *str, str_spec *format)
 	}
 	if (!(str[i] >= '0' && str[i] <= '9'))
 		return (0);
-	while(ft_isdigit(str[i]))
+
+	while (str[i] >= '0' && str[i] <= '9')
 	{
 		res = (res * 10) + (str[i] - 48);
 		i++;
 		format->index++;
 	}
 	format->index--;
+/*
+	while (ft_isdigit(str[i]))
+	{
+		res = (res * 10) + (str[i] - 48);
+		i++;
+		format->index++;
+	}
+//	format->index--;
+*/
 	return (neg * res);
 }

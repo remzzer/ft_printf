@@ -10,7 +10,19 @@ int		ft_printchar_fd(char c, str_spec *format)
 
 int		ft_printspace_fd(char c,  str_spec *format, int len)
 {
-	if (format->precision != -1 && format->width != 0 && len >= format->width)
+	int		size;
+
+	size = 0;
+
+	(format->precision > format->width) ?
+	(size = format->precision - format->width) :
+	(size = format->width - format->precision);
+
+
+	//(len > format->width) ?
+	//(size = len - format->width) :
+	//(size = format->width - len);
+	if (format->precision != -1 && len >= format->width)
 	{
 		while ((format->width - format->precision) > 0)
 		{
@@ -19,27 +31,26 @@ int		ft_printspace_fd(char c,  str_spec *format, int len)
 			format->printed++;
 		}
 	}
-	else if (format->precision != -1 && format->width != 0 && len < format->width)
+	else if (format->precision != -1 && len < format->width)
 	{
-		while ((format->width - format->precision) > 0)
+		//printf("size:%d", size);i
+		while (size > 0)
 		{
-			ft_putchar_fd(c, 1);
-			format->width--;
-			format->printed++;
+				ft_putchar_fd(c, 1);
+				size--;
+			//format->precision--;
+				format->printed++;
 		}
-		//if (format->precision > len)
-		//{
-		while (format->precision > len)
+		while (format->precision  > len)
 		{
 			ft_putchar_fd(c, 1);
 			format->precision--;
 			format->printed++;
 		}
-		//}
 	}
 	else
 	{
-		while (format->width  > len) //precision? 
+		while (format->width  > len)
 		{
 			ft_putchar_fd(c, 1);
 			format->printed++;

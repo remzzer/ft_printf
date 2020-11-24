@@ -44,6 +44,8 @@ int		fix_struct(str_spec *format)
 
 int		update_struct(const char *str, str_spec *format, va_list list)
 {
+	int		test;
+	test = 0;
 	while (str[format->index])
 	{
 		if (str[format->index] == '0')
@@ -63,19 +65,32 @@ int		update_struct(const char *str, str_spec *format, va_list list)
 		}
 		else if (str[format->index] == '.')
 		{
+			test = format->index;
 			(str[format->index + 1] == '*')
 			? (format->precision = va_arg(list, int))
 			: (format->precision = ft_atoi_n(&str[format->index + 1], format));
-			//printf("pre:%d", format->precision);
+		//	printf("pre:%d", format->precision);
+		//	printf("width:%d", format->width);
 		}
 		else if (ft_isdigit(str[format->index]) && str[format->index] != '0')
 		{
-			if (str[format->index -1] != '.' )
-				format->width = ft_atoi_n(&str[format->index], format);
-			//printf("width:%d", format->width);
+			if (str[format->index] > test && test != 0)
+			{
+				(format->precision = ft_atoi_n(&str[format->index], format));
+				//printf("pre:%d\n", format->precision);
+			}
+			else
+			{
+				(format->width = ft_atoi_n(&str[format->index], format));
+				//printf("width:%d\n", format->width);
+			}
 		}
 		else if ((format->type_flags = find_id_flags(str[format->index])) != -1)
+		{
 			return(fix_struct(format));
+		}
+		//printf("iex:%c\n", str[format->index]);
+		//printf("Type%d\n", format->type_flags);
 		format->index++;
 	}
 	return (0);
