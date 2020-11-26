@@ -39,10 +39,26 @@ void	ft_print_s(va_list list, str_spec *format)
 
 void	ft_print_d(va_list list, str_spec *format)
 {
-	int		n;
-	n = va_arg(list, int);
-	ft_printd_fd(n, format);
+	long	n;
+
+	n = (long)va_arg(list, int);
+	if (format->precision != -1 && format->width == 0)
+		ft_printnum_pre(n, format);
+	else if (format->width != 0)//&& format->zero != 0)
+		ft_printnum_fd(n, format);
+	else
+		ft_printd_fd(n, format);
+
+	//mesurer longueur de n avec fonction size_num
+	//Appliquer fonction ft_printstr_width (kinfof)
 }
+
+
+
+
+
+
+
 
 void	ft_print_x(va_list list, str_spec *format)
 {

@@ -30,12 +30,17 @@ void	init_struct(str_spec *format);
 //function_help.c
 int		ft_printchar_fd(char c, str_spec *format);
 int		ft_printspace_fd(char c, str_spec *format, int len);
+int		ft_printwidth_fd(char c, str_spec *format, int len);
 int		ft_printstr_fd(char *str, str_spec *format);
 int		ft_printstr_pre(char *str, str_spec *format);
 int		ft_printstr_width(char *str, str_spec *format);
 
 //function_help_2.c
-int		ft_printd_fd(int n, str_spec *format);
+int		ft_printd_fd(long n, str_spec *format);
+int		size_num(long n);
+int		ft_printnum_fd(long n, str_spec *format);
+int		ft_printnum_pre(long n, str_spec *format);
+int		ft_printpre_fd(char c, str_spec *format, long len);
 
 
 //printed_flags.c

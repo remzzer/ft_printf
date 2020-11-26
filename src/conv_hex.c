@@ -29,7 +29,7 @@ char	*ft_itoa_hex(long n)
 	num = n;
 	len = ft_n_len(num);
 
-	if(!(str = (char *) malloc(sizeof(char) * len + 1)))
+	if (!(str = (char *)malloc(sizeof(char) * len + 1)))
 		return (NULL);
 	counter = 0;
 	while (counter < len)

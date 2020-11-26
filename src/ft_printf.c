@@ -9,12 +9,9 @@ void	ft_print_args(str_spec *format, va_list args)
 		ft_print_s(args, format);
 	//if (format->type_flags == 2)
 	//	ft_print_p(args);
-	if (format->type_flags == 3)
+	if (format->type_flags == 3 || format->type_flags == 4 
+	|| format->type_flags == 5)
 		ft_print_d(args, format);
-	//if (format->type_flags == 4)
-	//	ft_print_i(args, format);
-	//if (format->type_flags == 5)
-	//	ft_print_u(args, format);
 	if (format->type_flags == 6 || format->type_flags == 7)
 		ft_print_x(args, format);
 }
