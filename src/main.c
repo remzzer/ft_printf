@@ -92,6 +92,7 @@ int		res = 0;
 //res = printf("real:%.19s\n", NULL);
 //res = ft_printf("real:%.09s\n", NULL);
 res = ft_printf("real:%3.6s|\n", "");
+//res = printf("real:%.6s|\n", "Y");
 //res = printf("real:%3.6s|\n", "");
 
 

@@ -100,14 +100,5 @@ int		ft_atoi_n(const char *str, str_spec *format)
 		format->index++;
 	}
 	format->index--;
-/*
-	while (ft_isdigit(str[i]))
-	{
-		res = (res * 10) + (str[i] - 48);
-		i++;
-		format->index++;
-	}
-//	format->index--;
-*/
 	return (neg * res);
 }

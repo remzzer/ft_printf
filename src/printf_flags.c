@@ -28,24 +28,13 @@ void	ft_print_s(va_list list, str_spec *format)
 		ft_printstr_width(str, format);
 	}
 	else if (format->precision != -1 && format->width == 0)
-	{
-		//printf("yuyu");
 		ft_printstr_pre(str, format);
-	}
 	else if (format->precision != -1 && format->width != 0)
-	{
-		//printf("yuyu");
 		ft_printstr_width(str, format);
-	}
 	else if (format->width != 0)
-	{
-		//printf("yuyu");
 		ft_printstr_width(str, format);
-	}
 	else
-	{
 		ft_printstr_pre(str, format);
-	}
 }
 
 void	ft_print_d(va_list list, str_spec *format)
