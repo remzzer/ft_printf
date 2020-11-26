@@ -89,8 +89,6 @@ int		update_struct(const char *str, str_spec *format, va_list list)
 		{
 			return(fix_struct(format));
 		}
-		//printf("iex:%c\n", str[format->index]);
-		//printf("Type%d\n", format->type_flags);
 		format->index++;
 	}
 	return (0);

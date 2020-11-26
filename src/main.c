@@ -91,10 +91,10 @@ int		res = 0;
 //res = ft_printf("real:%.19s\n", NULL);
 //res = printf("real:%.19s\n", NULL);
 //res = ft_printf("real:%.09s\n", NULL);
-res = ft_printf("real:%3.6s|\n", "");
+//res = ft_printf("real:%3.6s|\n", "");
 //res = printf("real:%.6s|\n", "Y");
 //res = printf("real:%3.6s|\n", "");
-
+res = ft_printf("real:%7.3s|\n", "hello");
 
 //res = ft_printf("Myprintf:%.*s\n", 3, "exemple"); //exemple
 //res = printf("Myprintf:%.*s\n", 3, "exemple"); //exemple
