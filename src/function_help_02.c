@@ -6,10 +6,10 @@ int		size_num(long n)
 	long	size;
 
 	size = 0;
-	if (n == 0)
+	if (n == 0 || n < 0 )
 		size++;
 	if (n < 0)
-		size++;
+		n *= -1;
 	while (n != 0)
 	{
 		size++;
@@ -43,6 +43,15 @@ int		ft_printnum_fd(long n, str_spec *format)
 	size = size_num(n);
 	if (format->left_align == 0)
 	{
+		if (format->zero != 0)
+		{
+			if (n < 0)
+			{
+				n *= -1;
+				ft_putchar_fd('-', 1);
+			}
+			ft_printwidth_fd('0', format, size);
+		}
 		ft_printwidth_fd(' ', format, size);
 		ft_printd_fd(n, format);
 	}
@@ -59,6 +68,12 @@ int		ft_printnum_pre(long n, str_spec *format)
 	long	size;
 
 	size = size_num(n);
+	if (n < 0)
+	{
+		ft_putchar_fd('-', 1);
+		n *= -1;
+		size = size - 1;
+	}
 	ft_printpre_fd('0', format, size);
 	ft_printd_fd(n, format);
 	return (format->printed);

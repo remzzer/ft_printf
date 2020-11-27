@@ -44,7 +44,9 @@ void	ft_print_d(va_list list, str_spec *format)
 	n = (long)va_arg(list, int);
 	if (format->precision != -1 && format->width == 0)
 		ft_printnum_pre(n, format);
-	else if (format->width != 0)//&& format->zero != 0)
+	//else if (format->precision != -1 && format->width != 0)
+		
+	else if (format->width != 0)
 		ft_printnum_fd(n, format);
 	else
 		ft_printd_fd(n, format);

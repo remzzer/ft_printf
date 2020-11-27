@@ -16,7 +16,8 @@ int		res = 0;
 	//printf("vreal:%-5d\n", 5); //5
 	//ft_printf("Myprintf:%-05d\n", 5); //5
 	//res = printf("vreal:%7d\n", 33); //____5
-	res = ft_printf("vreal:%.5d\n", 2); //____5
+	//res = ft_printf("vreal:%.6d\n", -3); //____5
+	res = ft_printf("vreal:%05d\n", 43); //____5
 	//ft_printf("Myprintf:%5d\n", 5); //5
 
 //WIDTH
