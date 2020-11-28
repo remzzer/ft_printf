@@ -36,6 +36,9 @@ int		fix_struct(str_spec *format)
 {
 	if (format->precision < 0)
 		format->precision = -1;
+	if (format->zero == 1 && (format->precision != -1 
+		|| format->left_align == 1))
+		format->zero = 0;
 	return (1);
 }
 
@@ -66,7 +69,7 @@ int		update_struct(const char *str, str_spec *format, va_list list)
 			(str[format->index + 1] == '*')
 			? (format->precision = va_arg(list, int))
 			: (format->precision = ft_atoi_n(&str[format->index + 1], format));
-		//	printf("pre:%d", format->precision);
+	//		printf("pre:%d", format->precision);
 		//	printf("width:%d", format->width);
 		}
 		else if (ft_isdigit(str[format->index]) && str[format->index] != '0')

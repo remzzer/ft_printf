@@ -40,15 +40,19 @@ void	ft_print_s(va_list list, str_spec *format)
 void	ft_print_d(va_list list, str_spec *format)
 {
 	long	n;
+	long	size;
 
 	n = (long)va_arg(list, int);
-
+	size = size_num(n);
 	if (format->precision != -1 && format->width == 0)
-		ft_printnum_pre(n, format);
+		ft_printnum_pre(n, format, size);
 	else if (format->precision != -1 && format->width != 0)
-		ft_printnum_fd(n, format);
+		if (format->precision == 0)
+			ft_printnum_pre(n, format, size);
+		else
+			ft_printnum_fd(n, format, size);
 	else if (format->width != 0)
-		ft_printnum_fd(n, format);
+		ft_printnum_fd(n, format, size);
 	else
 		ft_printd_fd(n, format);
 }
