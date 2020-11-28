@@ -6,7 +6,7 @@ int		size_num(long n)
 	long	size;
 
 	size = 0;
-	if (n == 0 || n < 0 )
+	if (n == 0 || n < 0 ) 
 		size++;
 	if (n < 0)
 		n *= -1;
@@ -18,7 +18,7 @@ int		size_num(long n)
 	return (size);
 }
 
-int		ft_printd_fd(long n, str_spec *format)
+int		ft_printd_fd(long n, str_spec *format) // IMPRIME DECIMAL
 {
 	ft_putnbr_fd(n, 1);
 	format->printed++;
@@ -33,7 +33,7 @@ int		ft_printpre_fd(char c, str_spec *format, long size)
 		format->precision--;
 		format->printed++;
 	}
-	return (format->printed++);
+	return (format->printed);
 }
 
 int		ft_printnum_fd(long n, str_spec *format)
@@ -43,17 +43,18 @@ int		ft_printnum_fd(long n, str_spec *format)
 	size = size_num(n);
 	if (format->left_align == 0)
 	{
-		if (format->zero != 0)
+		if (format->zero != 0 && n < 0)
 		{
-			if (n < 0)
 			{
 				n *= -1;
 				ft_putchar_fd('-', 1);
 			}
 			ft_printwidth_fd('0', format, size);
 		}
+		if (format->precision != -1 && format->width != 0)
+			size = format->precision;
 		ft_printwidth_fd(' ', format, size);
-		ft_printd_fd(n, format);
+		ft_printnum_pre(n, format);
 	}
 	else
 	{
