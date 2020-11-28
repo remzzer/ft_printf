@@ -6,7 +6,7 @@ int		size_num(long n)
 	long	size;
 
 	size = 0;
-	if (n == 0 || n < 0 ) 
+	if (n == 0 || n < 0 )
 		size++;
 	if (n < 0)
 		n *= -1;
@@ -38,6 +38,11 @@ int		ft_printpre_fd(char c, str_spec *format, long size)
 
 int		ft_printnum_fd(long n, str_spec *format, long size)
 {
+	int		precision;
+	int		num;
+
+	precision = format->precision;
+	num = n;
 	if (format->left_align == 0)
 	{
 		if (format->zero != 0)
@@ -49,13 +54,27 @@ int		ft_printnum_fd(long n, str_spec *format, long size)
 			}
 			ft_printwidth_fd('0', format, size);
 		}
-		ft_printwidth_fd(' ', format, size);
+		if (format->width > format->precision && format->precision >= size)
+		{
+			if (n < 0)
+				format->width -= 1;
+			ft_printwidth_fd(' ', format, precision);
+		}
+		else
+			ft_printwidth_fd(' ', format, size);
 		ft_printnum_pre(n, format, size);
 	}
 	else
 	{
-		ft_printd_fd(n, format);
-		ft_printwidth_fd(' ', format, size);
+		ft_printnum_pre(n, format, size);
+		if (format->width > format->precision && precision >= size)
+		{
+			if (num < 0)
+				format->width -= 1;
+			ft_printwidth_fd(' ', format, precision);
+		}
+		else
+			ft_printwidth_fd(' ', format, size);
 	}
 	return (format->printed);
 }

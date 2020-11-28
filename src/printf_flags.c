@@ -57,13 +57,6 @@ void	ft_print_d(va_list list, str_spec *format)
 		ft_printd_fd(n, format);
 }
 
-
-
-
-
-
-
-
 void	ft_print_x(va_list list, str_spec *format)
 {
 	char	*str;

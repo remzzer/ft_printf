@@ -18,7 +18,7 @@ int		res = 0;
 	//res = printf("vreal:%7d\n", 33); //____5
 	//res = ft_printf("vreal:%.6d\n", -3); //____5
 	//res = ft_printf("vreal:%.0d|\n", 35); //____5
-	res = ft_printf("vreal:%5.0d|\n", 0); //____5
+	res = ft_printf("vreal:%-10.5d|\n",-134); //____5
 	//res = printf("vreal:%5.0d|\n", 0); //____5
 	//ft_printf("Myprintf:%5d\n", 5); //5
 
