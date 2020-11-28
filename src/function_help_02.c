@@ -43,15 +43,17 @@ int		ft_printnum_fd(long n, str_spec *format)
 	size = size_num(n);
 	if (format->left_align == 0)
 	{
-		if (format->zero != 0 && n < 0)
+		if (format->zero != 0)
 		{
+			if (n < 0)
 			{
 				n *= -1;
 				ft_putchar_fd('-', 1);
 			}
 			ft_printwidth_fd('0', format, size);
+			//ft_printpre_fd('0', format, size);
 		}
-		if (format->precision != -1 && format->width != 0)
+		if (format->precision != -1 && format->width != 0 && format->precision > size)
 			size = format->precision;
 		ft_printwidth_fd(' ', format, size);
 		ft_printnum_pre(n, format);
