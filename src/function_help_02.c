@@ -18,7 +18,7 @@ int		size_num(long n)
 	return (size);
 }
 
-int		ft_printd_fd(long n, str_spec *format) // IMPRIME DECIMAL
+int		ft_printd_fd(long n, str_spec *format)
 {
 	ft_putnbr_fd(n, 1);
 	format->printed++;
@@ -38,40 +38,42 @@ int		ft_printpre_fd(char c, str_spec *format, long size)
 
 int		ft_printnum_fd(long n, str_spec *format, long size)
 {
-	int		precision;
-	int		num;
+	int		tmp_pre;
+	long	tmp_num;
 
-	precision = format->precision;
-	num = n;
+	tmp_pre = format->precision;
+	tmp_num = n;
 	if (format->left_align == 0)
 	{
 		if (format->zero != 0)
 		{
-			if (n < 0)
-			{
-				n *= -1;
-				ft_putchar_fd('-', 1);
-			}
-			ft_printwidth_fd('0', format, size);
+			ft_printnum_pre(n, format, size);
+			//if (n < 0)
+			//{
+			//	n *= -1;
+			//	ft_putchar_fd('-', 1);
+			//}
+			//ft_printwidth_fd('0', format, size);
 		}
 		if (format->width > format->precision && format->precision >= size)
 		{
 			if (n < 0)
 				format->width -= 1;
-			ft_printwidth_fd(' ', format, precision);
+			ft_printwidth_fd(' ', format, tmp_pre);
 		}
 		else
 			ft_printwidth_fd(' ', format, size);
-		ft_printnum_pre(n, format, size);
+		if (format->zero == 0)
+			ft_printnum_pre(n, format, size); /////
 	}
 	else
 	{
 		ft_printnum_pre(n, format, size);
-		if (format->width > format->precision && precision >= size)
+		if (format->width > format->precision && tmp_pre >= size)
 		{
-			if (num < 0)
+			if (tmp_num < 0)
 				format->width -= 1;
-			ft_printwidth_fd(' ', format, precision);
+			ft_printwidth_fd(' ', format, tmp_pre);
 		}
 		else
 			ft_printwidth_fd(' ', format, size);
@@ -81,12 +83,21 @@ int		ft_printnum_fd(long n, str_spec *format, long size)
 
 int		ft_printnum_pre(long n, str_spec *format, long size)
 {
-	if (n < 0)
+	if (n < 0 && format->zero == 0)
 	{
 		ft_putchar_fd('-', 1);
 		n *= -1;
 		size = size - 1;
 	}
+	if (format->zero != 0 && n < 0)
+	{
+		ft_putchar_fd('-', 1);
+		n *= -1;
+		ft_printwidth_fd('0', format, size);
+//		return (0);
+	}
+	if (format->zero != 0)
+		ft_printwidth_fd('0', format, size);
 	if (format->precision == 0)
 		ft_printwidth_fd(' ', format, 0);
 	else

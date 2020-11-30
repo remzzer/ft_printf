@@ -18,7 +18,7 @@ int		res = 0;
 	//res = printf("vreal:%7d\n", 33); //____5
 	//res = ft_printf("vreal:%.6d\n", -3); //____5
 	//res = ft_printf("vreal:%.0d|\n", 35); //____5
-	res = ft_printf("vreal:%-10.5d|\n",-134); //____5
+	//res = ft_printf("vreal:%-10.5d|\n",-134); //____5
 	//res = printf("vreal:%5.0d|\n", 0); //____5
 	//ft_printf("Myprintf:%5d\n", 5); //5
 
@@ -104,6 +104,10 @@ int		res = 0;
 //res = printf("Myprintf:%.*s\n", 3, "exemple"); //exemple
 //res = ft_printf("Real_width:%8s\n", "exemple"); //exemple
 //res = printf("Real_width:%8s\n", "exemple"); //_______exemple
+//
+ //res = printf("test:%u",  429496729);
+ //res = ft_printf("test:%u",  4294967295u);
+ res = ft_printf("test:%d",  -1);
 printf("Result%d\n", res);
 	return (0);
 }

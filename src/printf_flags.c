@@ -42,7 +42,10 @@ void	ft_print_d(va_list list, str_spec *format)
 	long	n;
 	long	size;
 
-	n = (long)va_arg(list, int);
+	if (format->type_flags == 5)
+		n = (long)va_arg(list, unsigned int);
+	else
+		n = (long)va_arg(list, int);
 	size = size_num(n);
 	if (format->precision != -1 && format->width == 0)
 		ft_printnum_pre(n, format, size);
@@ -51,12 +54,9 @@ void	ft_print_d(va_list list, str_spec *format)
 			ft_printnum_pre(n, format, size);
 		else
 			ft_printnum_fd(n, format, size);
-	else if (format->width != 0)
-		ft_printnum_fd(n, format, size);
 	else
-		ft_printd_fd(n, format);
+		ft_printnum_fd(n, format, size);
 }
-
 void	ft_print_x(va_list list, str_spec *format)
 {
 	char	*str;

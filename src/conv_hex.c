@@ -15,7 +15,7 @@ int		ft_n_len(long n)
 		n = n / 16;
 		len++;
 	}
-	return(len);
+	return (len);
 }
 
 char	*ft_itoa_hex(long n)
