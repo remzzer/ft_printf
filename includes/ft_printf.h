@@ -36,11 +36,11 @@ int		ft_printstr_pre(char *str, str_spec *format);
 int		ft_printstr_width(char *str, str_spec *format);
 
 //function_help_2.c
-int		ft_printd_fd(long n, str_spec *format);
+int		ft_printd_fd(long n, str_spec *format, int size);
 int		size_num(long n);
-int		ft_printnum_fd(long n, str_spec *format, long size);
-int		ft_printnum_pre(long n, str_spec *format, long size);
-int		ft_printpre_fd(char c, str_spec *format, long len);
+int		ft_printnum_fd(long n, str_spec *format, int size);
+int		ft_printnum_pre(long n, str_spec *format, int size);
+int		ft_printpre_fd(char c, str_spec *format, int len);
 
 
 //printed_flags.c

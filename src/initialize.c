@@ -10,11 +10,3 @@ void	init_struct(str_spec *format)
 	format->zero =  0; //padding
 	format->type_flags = 0;// cspdiuxX
 }
-
-/*
-int		set_flag_params(int id_flags, str_spec *format)
-{
-	format->type_flags = id_flags;
-	return (id_flags);
-}
-*/

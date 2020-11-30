@@ -104,10 +104,15 @@ int		res = 0;
 //res = printf("Myprintf:%.*s\n", 3, "exemple"); //exemple
 //res = ft_printf("Real_width:%8s\n", "exemple"); //exemple
 //res = printf("Real_width:%8s\n", "exemple"); //_______exemple
-//
- //res = printf("test:%u",  429496729);
- //res = ft_printf("test:%u",  4294967295u);
- res = ft_printf("test:%d",  -1);
+//res = printf("test:%u",  429496729);
+//res = ft_printf("test:%u",  4294967295u);
+
+//=====================HEX===================//
+
+res = ft_printf("%06d",-171);
+//res = printf("%06d",-171);
+//res = printf("%d",171);
+
 printf("Result%d\n", res);
 	return (0);
 }

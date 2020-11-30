@@ -18,15 +18,13 @@ int		ft_n_len(long n)
 	return (len);
 }
 
-char	*ft_itoa_hex(long n)
+char	*ft_itoa_hex(long num)
 {
 	char	*str;
-	long	num;
 	int		len;
 	int		counter;
 	int		i;
 
-	num = n;
 	len = ft_n_len(num);
 
 	if (!(str = (char *)malloc(sizeof(char) * len + 1)))
@@ -41,7 +39,8 @@ char	*ft_itoa_hex(long n)
 	i = 0;
 	if (num < 0)
 	{
-		num = -num;
+		//num = -num;
+		num *= -1;
 		str[0] = '-';
 		i++;
 	}
