@@ -1,60 +1,55 @@
 #include "../includes/ft_printf.h"
 #include "../libft/libft.h"
 
-int		ft_n_len(long n)
+int		ft_n_len(long n, int len)
 {
-	int		len;
-	len = 1;
-	if (n < 0)
+	while ((n /= 16) > 0)
 	{
-		n = -n;
-		len++;
-	}
-	while (n > 9)
-	{
-		n = n / 16;
-		len++;
+			len++;
+			//printf("len:%d\n", len);
+			//printf("n:%ld\n", n);
 	}
 	return (len);
 }
 
-char	*ft_itoa_hex(long num)
+char	*ft_itoa_hex(unsigned int n)
 {
-	char	*str;
-	int		len;
-	int		counter;
-	int		i;
+	char	*str; // final 
+	int		len; //longueur
+	int		sign;
+	//printf("n=%u\n", n);
+	long	num = n; //-1680
 
-	len = ft_n_len(num);
-
-	if (!(str = (char *)malloc(sizeof(char) * len + 1)))
-		return (NULL);
-	counter = 0;
-	while (counter < len)
-	{
-		str[counter] = '\0';
-		counter++;
-	}
-	str[counter] = '\0';
-	i = 0;
+	//printf("num=%ld\n", num);
+	sign = 0;
+	len = 1;
 	if (num < 0)
 	{
-		//num = -num;
+		len++;
 		num *= -1;
-		str[0] = '-';
-		i++;
+		sign = 1;
 	}
-	while (i < len - 1)
+	len = ft_n_len(num, len);
+	//printf("len:%d", len);
+	if(!(str = (char *)malloc(sizeof(char) * len + 1)))
+		return (NULL);
+	str[len--] = '\0';
+	if (num == 0)
+		str[len] = '0';
+	while (num > 0)
 	{
-		if (num < 10)
-			str[i] = num % 16 + '0';
+		if (num % 16 <= 9)
+			str[len] = num % 16 + '0';
 		else
-		{
-			str[i] = num % 16 - 10 + 'a';
-		}
-		num = num / 16;
-		i++;
+			str[len] = num % 16 - 10 + 'a';
+
+	//	printf("num:%ld\n", num);
+	//	printf("str_len:%c\n", str[len]);
+		num /= 16;
+		len--;
 	}
+	if (sign == 1)
+		str[0] = '-';
 	return (str);
 }
 

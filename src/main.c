@@ -108,10 +108,14 @@ int		res = 0;
 //res = ft_printf("test:%u",  4294967295u);
 
 //=====================HEX===================//
-
-res = ft_printf("%06d",-171);
-//res = printf("%06d",-171);
-//res = printf("%d",171);
+unsigned int A = -2;
+//res = printf("HEX:%x", 17);
+//printf("long:%d\n", sizeof(long));
+//printf("usigned int:%d\n", sizeof(unsigned int));
+//printf("int:%d\n", sizeof(int));
+//res = ft_printf("HEX:%x", -166000);
+res = ft_printf("HEX:%x", 0);
+//res = printf("HEX:%x", 1680);
 
 printf("Result%d\n", res);
 	return (0);

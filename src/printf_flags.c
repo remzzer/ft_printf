@@ -57,12 +57,18 @@ void	ft_print_d(va_list list, str_spec *format)
 	else
 		ft_printnum_fd(n, format, size);
 }
+
 void	ft_print_x(va_list list, str_spec *format)
 {
 	char	*str;
-	str = ft_itoa_hex(va_arg(list, unsigned int));
+	str = ft_itoa_hex(va_arg(list, unsigned));
 	if (format->type_flags == 7)
 		ft_Capital(str);
-	ft_putstr_fd(str, 1);
+	//if (format->precision != -1 && format->width == 0)
+	//	ft_printx_pre(str, format, len); //len de str
+	//else if (format->precision != -1 && format->width != 0)
+		
+	//else
+	//	ft_putstr_fd(str, 1); //changer car ne renvoit pas le bon int en return val
 }
 
