@@ -44,6 +44,7 @@ int		ft_printpre_fd(char c, str_spec *format, int len);
 
 //function_help_3.c
 int		ft_printx_pre(char *str, str_spec *format, int len);
+int		ft_printwidth_x(char *str, str_spec *format, int len);
 
 
 //printed_flags.c

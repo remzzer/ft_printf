@@ -14,3 +14,32 @@ int		ft_printx_pre(char *str, str_spec *format, int length)
 	}
 	return (format->printed);
 }
+
+int		ft_printwidth_x(char *str, str_spec *format, int length)
+{
+	int		tmp_prec;
+
+	tmp_prec = format->precision;
+	if (format->left_align == 0)
+	{
+		if (format->zero != 0)
+			ft_printx_pre(str, format, length);
+		if (format->width > format->precision && format->precision >= length)
+			ft_printwidth_fd(' ', format, tmp_prec);
+		else
+			ft_printwidth_fd(' ', format, length);
+		if (format->zero == 0)
+			ft_printx_pre(str, format, length);
+	}
+	else
+	{
+		ft_printx_pre(str, format, length);
+		if (format->width > format->precision && tmp_prec >= length)
+			ft_printwidth_fd(' ', format, tmp_prec);
+		else
+		ft_printwidth_fd(' ', format, length);
+	}
+	return (format->printed);
+
+
+}

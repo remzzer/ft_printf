@@ -68,11 +68,10 @@ void	ft_print_x(va_list list, str_spec *format)
 	if (format->type_flags == 7)
 		ft_Capital(str);
 	if (format->precision != -1 && format->width == 0)
-		ft_printx_pre(str, format, length); //len de str
-	//else if (format->precision != -1 && format->width != 0)
-		
+		ft_printx_pre(str, format, length);
+	else if (format->precision != -1 && format->width != 0)
+		ft_printwidth_x(str, format, length);
 	else
-		ft_printstr_fd(str, format);
-	//	ft_putstr_fd(str, 1); //changer car ne renvoit pas le bon int en return val
+		ft_printwidth_x(str, format, length);
 }
 
