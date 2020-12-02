@@ -1,7 +1,7 @@
 SRC =  ./src/conv_hex.c
 SRC += ./src/function_help.c
 SRC += ./src/function_help_02.c
-#SRC += ./src/function_help_03.c
+SRC += ./src/function_help_3.c
 SRC += ./src/ft_printf.c
 SRC += ./src/initialize.c
 SRC += ./src/printf_flags.c
@@ -21,7 +21,7 @@ FLAGS = -Wall -Werror -Wextra
 RM = rm -f
 
 ${NAME}: ${OBJS}
-		make -C ./libft #-C change directory
+		make -C ./libft
 		cp libft/libft.a ./${NAME}
 		ar -rcs ${NAME} ${OBJS}
 

@@ -113,8 +113,9 @@ unsigned int A = -2;
 //printf("long:%d\n", sizeof(long));
 //printf("usigned int:%d\n", sizeof(unsigned int));
 //printf("int:%d\n", sizeof(int));
-//res = ft_printf("HEX:%x", -166000);
-res = ft_printf("HEX:%x", 0);
+res = ft_printf("HEX:%.3x", 16);
+//res = printf("HEX:%x", 166000);
+//res = ft_printf("HEX:%x", 0);
 //res = printf("HEX:%x", 1680);
 
 printf("Result%d\n", res);

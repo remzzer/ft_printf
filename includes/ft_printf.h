@@ -42,6 +42,9 @@ int		ft_printnum_fd(long n, str_spec *format, int size);
 int		ft_printnum_pre(long n, str_spec *format, int size);
 int		ft_printpre_fd(char c, str_spec *format, int len);
 
+//function_help_3.c
+int		ft_printx_pre(char *str, str_spec *format, int len);
+
 
 //printed_flags.c
 void	ft_print_c(va_list args, str_spec *format);

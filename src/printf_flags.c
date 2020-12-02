@@ -61,14 +61,18 @@ void	ft_print_d(va_list list, str_spec *format)
 void	ft_print_x(va_list list, str_spec *format)
 {
 	char	*str;
+	int		length;
+
 	str = ft_itoa_hex(va_arg(list, unsigned));
+	length = ft_strlen(str);
 	if (format->type_flags == 7)
 		ft_Capital(str);
-	//if (format->precision != -1 && format->width == 0)
-	//	ft_printx_pre(str, format, len); //len de str
+	if (format->precision != -1 && format->width == 0)
+		ft_printx_pre(str, format, length); //len de str
 	//else if (format->precision != -1 && format->width != 0)
 		
-	//else
+	else
+		ft_printstr_fd(str, format);
 	//	ft_putstr_fd(str, 1); //changer car ne renvoit pas le bon int en return val
 }
 

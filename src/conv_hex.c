@@ -4,25 +4,20 @@
 int		ft_n_len(long n, int len)
 {
 	while ((n /= 16) > 0)
-	{
 			len++;
-			//printf("len:%d\n", len);
-			//printf("n:%ld\n", n);
-	}
 	return (len);
 }
 
 char	*ft_itoa_hex(unsigned int n)
 {
-	char	*str; // final 
-	int		len; //longueur
+	char	*str;
 	int		sign;
-	//printf("n=%u\n", n);
-	long	num = n; //-1680
+	int		len;
+	long	num;
 
-	//printf("num=%ld\n", num);
 	sign = 0;
 	len = 1;
+	num = n;
 	if (num < 0)
 	{
 		len++;
@@ -30,7 +25,6 @@ char	*ft_itoa_hex(unsigned int n)
 		sign = 1;
 	}
 	len = ft_n_len(num, len);
-	//printf("len:%d", len);
 	if(!(str = (char *)malloc(sizeof(char) * len + 1)))
 		return (NULL);
 	str[len--] = '\0';
@@ -42,9 +36,6 @@ char	*ft_itoa_hex(unsigned int n)
 			str[len] = num % 16 + '0';
 		else
 			str[len] = num % 16 - 10 + 'a';
-
-	//	printf("num:%ld\n", num);
-	//	printf("str_len:%c\n", str[len]);
 		num /= 16;
 		len--;
 	}
