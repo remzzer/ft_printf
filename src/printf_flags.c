@@ -41,7 +41,6 @@ void	ft_print_d(va_list list, str_spec *format)
 {
 	long	n;
 	long	size;
-
 	if (format->type_flags == 5)
 		n = (long)va_arg(list, unsigned int);
 	else
@@ -75,3 +74,10 @@ void	ft_print_x(va_list list, str_spec *format)
 		ft_printwidth_x(str, format, length);
 }
 
+/*
+void	ft_print_p(va_list list, str_spec *format)
+{
+
+
+}
+*/

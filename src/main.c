@@ -11,6 +11,9 @@ int		res = 0;
 	//
 //========DECIMAL================"star:%*==============//
 
+	ft_printf("Myprintf:%d\n", 5);
+
+
 //FLAGS
 	//printf("vreal:%05d\n", 5);
 	//printf("vreal:%-5d\n", 5); //5
@@ -108,12 +111,12 @@ int		res = 0;
 //res = ft_printf("test:%u",  4294967295u);
 
 //=====================HEX===================//
-unsigned int A = -2;
+//unsigned int A = -2;
 //res = printf("HEX:%x", 17);
 //printf("long:%d\n", sizeof(long));
 //printf("usigned int:%d\n", sizeof(unsigned int));
 //printf("int:%d\n", sizeof(int));
-res = ft_printf("HEX:%-8.5x|", 34);
+//res = ft_printf("HEX:%-8.5x|", 34);
 //res = printf("HEX:%-8.5x", 34);
 //res = printf("HEX:%-7x", 33);
 //res = printf("HEX:%x", 166000);
