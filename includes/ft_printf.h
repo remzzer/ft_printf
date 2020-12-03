@@ -57,6 +57,6 @@ void	ft_print_p(va_list args, str_spec *format);
 //conv.c
 int		ft_n_len(long n, int len);
 int		ft_atoi_n(const char *ptr, str_spec *format);
-char	*ft_itoa_hex(unsigned int  n);
+char	*ft_itoa_hex(unsigned int n);
 char	*ft_Capital(char *str);
 #endif

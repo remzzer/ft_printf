@@ -7,8 +7,8 @@ void	ft_print_args(str_spec *format, va_list args)
 		ft_print_c(args, format);
 	if (format->type_flags == 1)
 		ft_print_s(args, format);
-	//if (format->type_flags == 2)
-		//ft_print_p(args, format);
+	if (format->type_flags == 2)
+		ft_print_p(args, format);
 	if (format->type_flags == 3 || format->type_flags == 4 
 	|| format->type_flags == 5)
 		ft_print_d(args, format);

@@ -11,7 +11,17 @@ int		res = 0;
 	//
 //========DECIMAL================"star:%*==============//
 
-	ft_printf("Myprintf:%d\n", 5);
+	unsigned int		b = 1680;
+	unsigned int		*ptr = &b;
+
+	//ft_printf("Myprintf:%d\n", 5);
+	//res = printf("Myprintf:%p\n", "");
+	//res = printf("Myprintf:%p\n", ptr);
+	//
+	res = ft_printf("Myprintf:%p\n", ptr);
+	res = printf("Myprintf:%p\n", ptr);
+	//res = ft_printf("Myprintf:%x\n", b);
+	//res = printf("Myprintf:%x\n", b);
 
 
 //FLAGS

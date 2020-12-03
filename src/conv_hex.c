@@ -13,7 +13,7 @@ char	*ft_itoa_hex(unsigned int n)
 	char	*str;
 	int		sign;
 	int		len;
-	long	num;
+	long long	num;
 
 	sign = 0;
 	len = 1;

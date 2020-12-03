@@ -62,7 +62,7 @@ void	ft_print_x(va_list list, str_spec *format)
 	char	*str;
 	int		length;
 
-	str = ft_itoa_hex(va_arg(list, unsigned));
+	str = ft_itoa_hex(va_arg(list, unsigned int));
 	length = ft_strlen(str);
 	if (format->type_flags == 7)
 		ft_Capital(str);
@@ -74,10 +74,18 @@ void	ft_print_x(va_list list, str_spec *format)
 		ft_printwidth_x(str, format, length);
 }
 
-/*
+
 void	ft_print_p(va_list list, str_spec *format)
 {
+size_t	value;
+char	*str_1;
+char	*str_2;
 
-
+value = va_arg(list, unsigned int);
+str_1 = ft_itoa_hex(value);
+str_2 = ft_strjoin("0x", str_1);
+ft_printstr_fd(str_2, format);
+free(str_1);
+free(str_2);
 }
-*/
+

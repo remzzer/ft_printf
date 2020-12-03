@@ -40,6 +40,4 @@ int		ft_printwidth_x(char *str, str_spec *format, int length)
 		ft_printwidth_fd(' ', format, length);
 	}
 	return (format->printed);
-
-
 }
