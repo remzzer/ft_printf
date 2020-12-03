@@ -44,6 +44,43 @@ char	*ft_itoa_hex(unsigned int n)
 	return (str);
 }
 
+char	*ft_itoa_hex_2(unsigned long  n)
+{
+	char	*str;
+	int		sign;
+	int		len;
+	long long	num;
+
+	sign = 0;
+	len = 1;
+	num = n;
+	if (num < 0)
+	{
+		len++;
+		num *= -1;
+		sign = 1;
+	}
+	len = ft_n_len(num, len);
+	if(!(str = (char *)malloc(sizeof(char) * len + 1)))
+		return (NULL);
+	str[len--] = '\0';
+	if (num == 0)
+		str[len] = '0';
+	while (num > 0)
+	{
+		if (num % 16 <= 9)
+			str[len] = num % 16 + '0';
+		else
+			str[len] = num % 16 - 10 + 'a';
+		num /= 16;
+		len--;
+	}
+	if (sign == 1)
+		str[0] = '-';
+	return (str);
+}
+
+
 char	*ft_Capital(char *str)
 {
 	int		i;

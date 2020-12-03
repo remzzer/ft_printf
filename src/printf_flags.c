@@ -77,15 +77,25 @@ void	ft_print_x(va_list list, str_spec *format)
 
 void	ft_print_p(va_list list, str_spec *format)
 {
-size_t	value;
-char	*str_1;
-char	*str_2;
+	unsigned long	value;
+	char	*str_1;
+	char	*str_2;
+	int		length;
 
-value = va_arg(list, unsigned int);
-str_1 = ft_itoa_hex(value);
+value = va_arg(list, unsigned long);
+str_1 = ft_itoa_hex_2(value);
 str_2 = ft_strjoin("0x", str_1);
-ft_printstr_fd(str_2, format);
+length = ft_strlen(str_2);
+ft_printwidth_x(str_2, format, length);
 free(str_1);
 free(str_2);
+/*
+	if (format->precision != -1 && format->width == 0)
+		ft_printx_pre(str, format, length);
+	else if (format->precision != -1 && format->width != 0)
+		ft_printwidth_x(str, format, length);
+	else
+		ft_printwidth_x(str, format, length);
+*/
 }
 
