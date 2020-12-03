@@ -11,17 +11,25 @@ int		res = 0;
 	//
 //========DECIMAL================"star:%*==============//
 
-	unsigned int		b = 5;
+	unsigned int		b = 0;
 	unsigned int		*ptr = &b;
 
 	//ft_printf("Myprintf:%d\n", 5);
 	//res = printf("Myprintf:%p\n", "");
 	//res = printf("Myprintf:%p\n", ptr);
 	//
-	res = ft_printf("Myprintf:%p\n", ptr);
-	res = printf("Myprintf:%p\n", ptr);
+	//res = ft_printf("Myprintf:%p\n", ptr);
+	//res = printf("Myprintf:%p\n", ptr);
+	//res = printf("%u", -2);
 	//res = ft_printf("Myprintf:%x\n", b);
 	//res = printf("Myprintf:%x\n", b);
+	//res = ft_printf("Myprintf:%*s|", -32,  "yolo");
+	//res = printf("Myprintf:%*s|", -32,  "yolo");
+	//res = ft_printf("%-5%");
+	res = printf("%-5%");
+	//res = ft_printf("%%|");
+	//res = printf("%%");
+	//res = printf("%5%");
 
 
 //FLAGS
@@ -133,6 +141,6 @@ int		res = 0;
 //res = ft_printf("HEX:%x", 0);
 //res = printf("HEX:%x", 1680);
 
-printf("Result%d\n", res);
+//printf("Result%d\n", res);
 	return (0);
 }

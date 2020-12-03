@@ -80,7 +80,6 @@ char	*ft_itoa_hex_2(unsigned long  n)
 	return (str);
 }
 
-
 char	*ft_Capital(char *str)
 {
 	int		i;

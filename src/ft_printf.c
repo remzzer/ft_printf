@@ -9,11 +9,16 @@ void	ft_print_args(str_spec *format, va_list args)
 		ft_print_s(args, format);
 	if (format->type_flags == 2)
 		ft_print_p(args, format);
-	if (format->type_flags == 3 || format->type_flags == 4 
+	if (format->type_flags == 3 || format->type_flags == 4
 	|| format->type_flags == 5)
 		ft_print_d(args, format);
 	if (format->type_flags == 6 || format->type_flags == 7)
 		ft_print_x(args, format);
+	if (format->type_flags == 8)
+	{
+		//printf("type");
+		ft_print_sign(format);
+	}
 }
 
 int		find_id_flags(char c)
@@ -22,11 +27,11 @@ int		find_id_flags(char c)
 	char	*flags;
 
 	index = 0;
-	flags = "cspdiuxX";
+	flags = "cspdiuxX%";
 	while (flags[index] != '\0')
 	{
 		if (flags[index] == c)
-			return(index);
+			return (index);
 		index++;
 	}
 	return (-1);
@@ -39,15 +44,23 @@ int		fix_struct(str_spec *format)
 	if (format->zero == 1 && (format->precision != -1 
 		|| format->left_align == 1))
 		format->zero = 0;
+	if (format->width < 0)
+	{
+		format->left_align = 1;
+		format->width *= -1;
+	}
 	return (1);
 }
 
 int		update_struct(const char *str, str_spec *format, va_list list)
 {
 	int		test;
+//	int		remizer;
 	test = 0;
+//	remizer = 0;
 	while (str[format->index])
 	{
+		format->index++;
 		if (str[format->index] == '0')
 		{
 			format->zero = 1;
@@ -87,9 +100,13 @@ int		update_struct(const char *str, str_spec *format, va_list list)
 		}
 		else if ((format->type_flags = find_id_flags(str[format->index])) != -1)
 		{
-			return(fix_struct(format));
+			//if (format->type_flags == 8)
+			//	remizer++;
+			//else if (remizer > 1)
+			//	return(fix_struct(format));
+		//	else
+				return (fix_struct(format));
 		}
-		format->index++;
 	}
 	return (0);
 }

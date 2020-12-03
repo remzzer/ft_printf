@@ -53,6 +53,7 @@ void	ft_print_s(va_list args, str_spec *format);
 void	ft_print_d(va_list args, str_spec *format);
 void	ft_print_x(va_list args, str_spec *format);
 void	ft_print_p(va_list args, str_spec *format);
+void	ft_print_sign(str_spec *format);
 
 //conv.c
 int		ft_n_len(long n, int len);

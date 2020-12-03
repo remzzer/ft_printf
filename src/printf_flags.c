@@ -82,20 +82,35 @@ void	ft_print_p(va_list list, str_spec *format)
 	char	*str_2;
 	int		length;
 
-value = va_arg(list, unsigned long);
-str_1 = ft_itoa_hex_2(value);
-str_2 = ft_strjoin("0x", str_1);
-length = ft_strlen(str_2);
-ft_printwidth_x(str_2, format, length);
-free(str_1);
-free(str_2);
-/*
-	if (format->precision != -1 && format->width == 0)
-		ft_printx_pre(str, format, length);
-	else if (format->precision != -1 && format->width != 0)
-		ft_printwidth_x(str, format, length);
+	value = va_arg(list, unsigned long);
+	str_1 = ft_itoa_hex_2(value);
+	str_2 = ft_strjoin("0x", str_1);
+	length = ft_strlen(str_2);
+//	if (format->precision != -1 && format->width == 0)
+//		ft_printx_pre(str_2, format, length);
+//	else if (format->precision != -1 && format->width != 0)
+//		ft_printwidth_x(str_2, format, length);
+//	else
+	ft_printwidth_x(str_2, format, length);
+	free(str_1);
+	free(str_2);
+}
+
+void	ft_print_sign(str_spec *format)
+{
+
+	if (format->left_align != 0 && format->width != 0)
+	{
+		ft_printchar_fd('%', format);
+		ft_printspace_fd(' ', format, 1);
+	}
 	else
-		ft_printwidth_x(str, format, length);
-*/
+	{
+		if (format->zero != 0)
+			ft_printwidth_fd('0', format, 1);
+		else
+			ft_printspace_fd(' ', format, 1);
+		ft_printchar_fd('%', format);
+	}
 }
 
