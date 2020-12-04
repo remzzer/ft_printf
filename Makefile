@@ -3,8 +3,8 @@ SRC += ./src/function_help.c
 SRC += ./src/function_help_02.c
 SRC += ./src/function_help_3.c
 SRC += ./src/ft_printf.c
-SRC += ./src/initialize.c
 SRC += ./src/printf_flags.c
+SRC += ./src/printf_flags_02.c
 
 INCLUDES = ./includes/ft_printf.h
 

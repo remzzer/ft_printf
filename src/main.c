@@ -26,7 +26,11 @@ int		res = 0;
 	//res = ft_printf("Myprintf:%*s|", -32,  "yolo");
 	//res = printf("Myprintf:%*s|", -32,  "yolo");
 	//res = ft_printf("%-5%");
-	res = printf("%-5%");
+	//res = printf("%7i", -54);
+	//res = printf("%*i", -7, -54);
+	//res = ft_printf("%*i", -7, -54);
+	//res = printf("%04.5i", 42);
+	res = ft_printf("%04.5i", 42);
 	//res = ft_printf("%%|");
 	//res = printf("%%");
 	//res = printf("%5%");
@@ -141,6 +145,6 @@ int		res = 0;
 //res = ft_printf("HEX:%x", 0);
 //res = printf("HEX:%x", 1680);
 
-//printf("Result%d\n", res);
+printf("Result%d\n", res);
 	return (0);
 }

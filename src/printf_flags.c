@@ -21,6 +21,7 @@ void	ft_print_c(va_list list, str_spec *format)
 void	ft_print_s(va_list list, str_spec *format)
 {
 	char	*str;
+
 	str = va_arg(list, char *);
 	if (str == NULL)
 	{
@@ -41,6 +42,7 @@ void	ft_print_d(va_list list, str_spec *format)
 {
 	long	n;
 	long	size;
+
 	if (format->type_flags == 5)
 		n = (long)va_arg(list, unsigned int);
 	else
@@ -86,11 +88,6 @@ void	ft_print_p(va_list list, str_spec *format)
 	str_1 = ft_itoa_hex_2(value);
 	str_2 = ft_strjoin("0x", str_1);
 	length = ft_strlen(str_2);
-//	if (format->precision != -1 && format->width == 0)
-//		ft_printx_pre(str_2, format, length);
-//	else if (format->precision != -1 && format->width != 0)
-//		ft_printwidth_x(str_2, format, length);
-//	else
 	ft_printwidth_x(str_2, format, length);
 	free(str_1);
 	free(str_2);
@@ -98,7 +95,6 @@ void	ft_print_p(va_list list, str_spec *format)
 
 void	ft_print_sign(str_spec *format)
 {
-
 	if (format->left_align != 0 && format->width != 0)
 	{
 		ft_printchar_fd('%', format);

@@ -1,6 +1,13 @@
 #include "../includes/ft_printf.h"
 #include "../libft/libft.h"
 
+int		ft_printchar_fd(char c, str_spec *format)
+{
+	ft_putchar_fd(c, 1);
+	format->printed++;
+	return (format->printed);
+}
+
 int		ft_printx_pre(char *str, str_spec *format, int length)
 {
 	if (format->zero != 0)

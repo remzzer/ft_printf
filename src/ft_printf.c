@@ -15,10 +15,7 @@ void	ft_print_args(str_spec *format, va_list args)
 	if (format->type_flags == 6 || format->type_flags == 7)
 		ft_print_x(args, format);
 	if (format->type_flags == 8)
-	{
-		//printf("type");
 		ft_print_sign(format);
-	}
 }
 
 int		find_id_flags(char c)
@@ -41,8 +38,10 @@ int		fix_struct(str_spec *format)
 {
 	if (format->precision < 0)
 		format->precision = -1;
-	if (format->zero == 1 && (format->precision != -1 
+	if (format->zero == 1 && (format->precision != -1
 		|| format->left_align == 1))
+		format->zero = 0;  // AJOUTER UN BAIL GENRE BIG_ZER0 dans la struct + 1
+	if (format->zero != 0 && format->width < 0)
 		format->zero = 0;
 	if (format->width < 0)
 	{
@@ -95,7 +94,8 @@ int		update_struct(const char *str, str_spec *format, va_list list)
 			else
 			{
 				(format->width = ft_atoi_n(&str[format->index], format));
-				//printf("width:%d\n", format->width);
+			//	printf("width:%d\n", format->width);
+			//	printf("zeroi_2:%d", format->zero);
 			}
 		}
 		else if ((format->type_flags = find_id_flags(str[format->index])) != -1)

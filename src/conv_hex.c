@@ -4,15 +4,15 @@
 int		ft_n_len(long n, int len)
 {
 	while ((n /= 16) > 0)
-			len++;
+		len++;
 	return (len);
 }
 
 char	*ft_itoa_hex(unsigned int n)
 {
-	char	*str;
-	int		sign;
-	int		len;
+	char		*str;
+	int			sign;
+	int			len;
 	long long	num;
 
 	sign = 0;
@@ -25,7 +25,7 @@ char	*ft_itoa_hex(unsigned int n)
 		sign = 1;
 	}
 	len = ft_n_len(num, len);
-	if(!(str = (char *)malloc(sizeof(char) * len + 1)))
+	if (!(str = (char *)malloc(sizeof(char) * len + 1)))
 		return (NULL);
 	str[len--] = '\0';
 	if (num == 0)
@@ -44,11 +44,11 @@ char	*ft_itoa_hex(unsigned int n)
 	return (str);
 }
 
-char	*ft_itoa_hex_2(unsigned long  n)
+char	*ft_itoa_hex_2(unsigned long n)
 {
-	char	*str;
-	int		sign;
-	int		len;
+	char		*str;
+	int			sign;
+	int			len;
 	long long	num;
 
 	sign = 0;
@@ -61,7 +61,7 @@ char	*ft_itoa_hex_2(unsigned long  n)
 		sign = 1;
 	}
 	len = ft_n_len(num, len);
-	if(!(str = (char *)malloc(sizeof(char) * len + 1)))
+	if (!(str = (char *)malloc(sizeof(char) * len + 1)))
 		return (NULL);
 	str[len--] = '\0';
 	if (num == 0)
@@ -102,7 +102,7 @@ int		ft_atoi_n(const char *str, str_spec *format)
 	neg = 1;
 	res = 0;
 	i = 0;
-	if (str[i]== ' ' || str[i] == '\f' || str[i] == '\n'
+	if (str[i] == ' ' || str[i] == '\f' || str[i] == '\n'
 			|| str[i] == '\r' || str[i] == '\t' || str[i] == '\v')
 		i++;
 	if (str[i] == '+' || str[i] == '-')
@@ -113,7 +113,6 @@ int		ft_atoi_n(const char *str, str_spec *format)
 	}
 	if (!(str[i] >= '0' && str[i] <= '9'))
 		return (0);
-
 	while (str[i] >= '0' && str[i] <= '9')
 	{
 		res = (res * 10) + (str[i] - 48);

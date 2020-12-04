@@ -22,13 +22,14 @@ int		type_flags;
 int		ft_printf(const char *str, ...);
 int		find_id_flags(char c);
 int		update_struct(const char *str, str_spec *format, va_list args);
+int		fix_struct(str_spec *format);
 void	ft_print_args(str_spec *format, va_list args);
 
 //initialize.c
 void	init_struct(str_spec *format);
+void	ft_print_sign(str_spec *format);
 
 //function_help.c
-int		ft_printchar_fd(char c, str_spec *format);
 int		ft_printspace_fd(char c, str_spec *format, int len);
 int		ft_printwidth_fd(char c, str_spec *format, int len);
 int		ft_printstr_fd(char *str, str_spec *format);
@@ -43,9 +44,9 @@ int		ft_printnum_pre(long n, str_spec *format, int size);
 int		ft_printpre_fd(char c, str_spec *format, int len);
 
 //function_help_3.c
+int		ft_printchar_fd(char c, str_spec *format);
 int		ft_printx_pre(char *str, str_spec *format, int len);
 int		ft_printwidth_x(char *str, str_spec *format, int len);
-
 
 //printed_flags.c
 void	ft_print_c(va_list args, str_spec *format);
@@ -53,7 +54,6 @@ void	ft_print_s(va_list args, str_spec *format);
 void	ft_print_d(va_list args, str_spec *format);
 void	ft_print_x(va_list args, str_spec *format);
 void	ft_print_p(va_list args, str_spec *format);
-void	ft_print_sign(str_spec *format);
 
 //conv.c
 int		ft_n_len(long n, int len);
