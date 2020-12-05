@@ -1,5 +1,6 @@
 #include "../includes/ft_printf.h"
 #include "../libft/libft.h"
+#include <ctype.h>
 
 int		ft_n_len(long n, int len)
 {
@@ -102,8 +103,12 @@ int		ft_atoi_n(const char *str, str_spec *format)
 	neg = 1;
 	res = 0;
 	i = 0;
+	/*
 	if (str[i] == ' ' || str[i] == '\f' || str[i] == '\n'
 			|| str[i] == '\r' || str[i] == '\t' || str[i] == '\v')
+		i++;
+	*/
+	if (isspace(str[i]) >= 1)
 		i++;
 	if (str[i] == '+' || str[i] == '-')
 	{
