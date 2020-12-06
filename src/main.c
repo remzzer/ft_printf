@@ -11,8 +11,8 @@ int		res = 0;
 	//
 //========DECIMAL================"star:%*==============//
 
-	unsigned int		b = 0;
-	unsigned int		*ptr = &b;
+//	unsigned int		b = 0;
+//	unsigned int		*ptr = &b;
 
 	//ft_printf("Myprintf:%d\n", 5);
 	//res = printf("Myprintf:%p\n", "");
@@ -30,7 +30,8 @@ int		res = 0;
 	//res = printf("%*i", -7, -54);
 	//res = ft_printf("%*i", -7, -54);
 	//res = printf("%04.5i", 42);
-	res = ft_printf("%04.5i", 42);
+	//res = ft_printf("%x", -42);
+	res = printf("%x", -42);
 	//res = ft_printf("%%|");
 	//res = printf("%%");
 	//res = printf("%5%");

@@ -18,14 +18,14 @@ int		size_num(long n)
 	return (size);
 }
 
-int		ft_printd_fd(long n, str_spec *format, int size)
+int		ft_printd_fd(long n, t_str_spec *format, int size)
 {
 	ft_putnbr_fd(n, 1);
 	format->printed += size;
 	return (format->printed);
 }
 
-int		ft_printpre_fd(char c, str_spec *format, int size)
+int		ft_printpre_fd(char c, t_str_spec *format, int size)
 {
 	while (format->precision > size)
 	{
@@ -37,7 +37,7 @@ int		ft_printpre_fd(char c, str_spec *format, int size)
 	return (format->printed);
 }
 
-int		ft_printnum_fd(long n, str_spec *format, int size)
+int		ft_printnum_fd(long n, t_str_spec *format, int size)
 {
 	int		tmp_pre;
 	long	tmp_num;
@@ -74,7 +74,7 @@ int		ft_printnum_fd(long n, str_spec *format, int size)
 	return (format->printed);
 }
 
-int		ft_printnum_pre(long n, str_spec *format, int size)
+int		ft_printnum_pre(long n, t_str_spec *format, int size)
 {
 	int		tmp_size;
 

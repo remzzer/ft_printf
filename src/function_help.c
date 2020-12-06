@@ -1,14 +1,14 @@
 #include "../includes/ft_printf.h"
 #include "../libft/libft.h"
 
-int		ft_printstr_fd(char *str, str_spec *format)
+int		ft_printstr_fd(char *str, t_str_spec *format)
 {
 	write(1, &str[0], ft_strlen(str));
 	format->printed += ft_strlen(str);
 	return (format->printed);
 }
 
-int		ft_printwidth_fd(char c, str_spec *format, int len)
+int		ft_printwidth_fd(char c, t_str_spec *format, int len)
 {
 	while (format->width > len)
 	{
@@ -20,7 +20,7 @@ int		ft_printwidth_fd(char c, str_spec *format, int len)
 	return (format->printed);
 }
 
-int		ft_printspace_fd(char c,  str_spec *format, int len)
+int		ft_printspace_fd(char c,  t_str_spec *format, int len)
 {
 	int		size;
 
@@ -48,7 +48,7 @@ int		ft_printspace_fd(char c,  str_spec *format, int len)
 	return (format->printed);
 }
 
-int		ft_printstr_pre(char *str, str_spec *format)
+int		ft_printstr_pre(char *str, t_str_spec *format)
 {
 	int		len;
 	int		i;
@@ -71,7 +71,7 @@ int		ft_printstr_pre(char *str, str_spec *format)
 	return (format->printed);
 }
 
-int		ft_printstr_width(char *str, str_spec *format)
+int		ft_printstr_width(char *str, t_str_spec *format)
 {
 	int		len;
 
