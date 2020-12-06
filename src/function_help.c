@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   function_help.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rrolland <rrolland@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/12/06 21:18:40 by rrolland          #+#    #+#             */
+/*   Updated: 2020/12/06 21:18:41 by rrolland         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/ft_printf.h"
 #include "../libft/libft.h"
 
@@ -15,14 +27,13 @@ int		ft_printwidth_fd(char c, t_str_spec *format, int len)
 		ft_putchar_fd(c, 1);
 		format->width--;
 		format->printed++;
-		//printf("y");
 	}
 	return (format->printed);
 }
 
-int		ft_printspace_fd(char c,  t_str_spec *format, int len)
+int		ft_printspace_fd(char c, t_str_spec *format, int len)
 {
-	int		size;
+	int	size;
 
 	size = 0;
 	(len >= format->width) ?
@@ -37,9 +48,9 @@ int		ft_printspace_fd(char c,  t_str_spec *format, int len)
 		}
 		while (size > 0)
 		{
-				ft_putchar_fd(c, 1);
-				size--;
-				format->printed++;
+			ft_putchar_fd(c, 1);
+			size--;
+			format->printed++;
 		}
 		if (format->precision < len && size != 0)
 			len = format->precision;

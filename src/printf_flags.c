@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   printf_flags.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rrolland <rrolland@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/12/06 21:18:58 by rrolland          #+#    #+#             */
+/*   Updated: 2020/12/06 21:18:59 by rrolland         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/ft_printf.h"
 #include "../libft/libft.h"
 
@@ -43,18 +55,25 @@ void	ft_print_d(va_list list, t_str_spec *format)
 	long	n;
 	long	size;
 
-	if (format->type_flags == 5)
-		n = (long)va_arg(list, unsigned int);
-	else
-		n = (long)va_arg(list, int);
+	(format->type_flags == 5) ? (n = (long)va_arg(list, unsigned int)) :
+	(n = (long)va_arg(list, int));
 	size = size_num(n);
+	if (format->precision == 0)
+		ft_printnum_pre(n, format, size);
+	if (format->zero != 0)
+	{
+		if (n < 0)
+		{
+			ft_putchar_fd('-', 1);
+			n *= -1;
+		}
+		ft_printwidth_fd('0', format, size);
+		ft_printnum_pre(n, format, size);
+	}
 	if (format->precision != -1 && format->width == 0)
 		ft_printnum_pre(n, format, size);
 	else if (format->precision != -1 && format->width != 0)
-		if (format->precision == 0)
-			ft_printnum_pre(n, format, size);
-		else
-			ft_printnum_fd(n, format, size);
+		ft_printnum_fd(n, format, size);
 	else
 		ft_printnum_fd(n, format, size);
 }
@@ -76,13 +95,12 @@ void	ft_print_x(va_list list, t_str_spec *format)
 		ft_printwidth_x(str, format, length);
 }
 
-
 void	ft_print_p(va_list list, t_str_spec *format)
 {
 	unsigned long	value;
-	char	*str_1;
-	char	*str_2;
-	int		length;
+	char			*str_1;
+	char			*str_2;
+	int				length;
 
 	value = va_arg(list, unsigned long);
 	str_1 = ft_itoa_hex_2(value);
@@ -92,21 +110,3 @@ void	ft_print_p(va_list list, t_str_spec *format)
 	free(str_1);
 	free(str_2);
 }
-
-void	ft_print_sign(t_str_spec *format)
-{
-	if (format->left_align != 0 && format->width != 0)
-	{
-		ft_printchar_fd('%', format);
-		ft_printspace_fd(' ', format, 1);
-	}
-	else
-	{
-		if (format->zero != 0)
-			ft_printwidth_fd('0', format, 1);
-		else
-			ft_printspace_fd(' ', format, 1);
-		ft_printchar_fd('%', format);
-	}
-}
-

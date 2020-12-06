@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   function_help_3.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rrolland <rrolland@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/12/06 21:18:35 by rrolland          #+#    #+#             */
+/*   Updated: 2020/12/06 21:18:36 by rrolland         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/ft_printf.h"
 #include "../libft/libft.h"
 
@@ -44,7 +56,7 @@ int		ft_printwidth_x(char *str, t_str_spec *format, int length)
 		if (format->width > format->precision && tmp_prec >= length)
 			ft_printwidth_fd(' ', format, tmp_prec);
 		else
-		ft_printwidth_fd(' ', format, length);
+			ft_printwidth_fd(' ', format, length);
 	}
 	return (format->printed);
 }
