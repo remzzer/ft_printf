@@ -173,8 +173,11 @@ int d = 2147483647;
 //res = ft_printf("%*i, %*d, %*d, %*d, %*d, %*d, %*d, %*d", 4, 8, 4, -12, 4, 123456789, 4, 4, a, m, a, c, a, e, a, d);
 //res = printf("%*i, %*d, %*d, %*d, %*d, %*d, %*d, %*d", 4, 8, 4, -12, 4, 123456789, 4, 4, a, m, a, c, a, e, a, d);
 
-//res = printf("%.4d", -12);
-res = ft_printf("%.4d", -12);
+//res = printf("%3.d", 42);
+//res = printf("%*.*d", 2, 3, 8);
+//res = ft_printf("%*.*d", -2, 3, 8);
+res = ft_printf("%12.12d", 42);
+//res = printf("%12.12d", 42);
 printf("Result%d\n", res);
 	return (0);
 }

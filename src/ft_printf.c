@@ -65,9 +65,6 @@ int		fix_struct(t_str_spec *format)
 
 int		update_struct(const char *str, t_str_spec *format, va_list list)
 {
-	int		test;
-
-	test = 0;
 	while (str[format->index++])
 	{
 		if (str[format->index] == '0')
@@ -77,15 +74,16 @@ int		update_struct(const char *str, t_str_spec *format, va_list list)
 		else if (str[format->index] == '*' && str[format->index - 1] != '.')
 			format->width = va_arg(list, int);
 		else if (str[format->index] == '.')
-			(str[format->index + 1] == '*')
-			? ((format->precision = va_arg(list, int))
-			&& (test = format->index)) :
-			((format->precision = ft_atoi_n(&str[format->index + 1], format))
-			&& (test = format->index));
+			(str[format->index + 1] == '*') ?
+			(format->precision = va_arg(list, int)) :
+			(format->precision = ft_atoi_n(&str[format->index + 1], format));
 		else if (ft_isdigit(str[format->index]) && str[format->index] != '0')
-			(str[format->index] > test && test != 0) ?
+		{
+			(format->precision) >= 0 ?
 			(format->precision = ft_atoi_n(&str[format->index], format)) :
 			(format->width = ft_atoi_n(&str[format->index], format));
+			format->index--;
+		}
 		else if ((format->type_flags = find_id_flags(str[format->index])) != -1)
 			return (fix_struct(format));
 	}

@@ -58,8 +58,6 @@ void	ft_print_d(va_list list, t_str_spec *format)
 	(format->type_flags == 5) ? (n = (long)va_arg(list, unsigned int)) :
 	(n = (long)va_arg(list, int));
 	size = size_num(n);
-	if (format->precision == 0)
-		ft_printnum_pre(n, format, size);
 	if (format->zero != 0)
 	{
 		if (n < 0)

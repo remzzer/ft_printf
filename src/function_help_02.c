@@ -57,6 +57,8 @@ int		ft_printnum_fd(long n, t_str_spec *format, int size)
 	{
 		if (format->width > format->precision && format->precision >= size)
 		{
+			//printf("width%d", format->width);
+			//printf("prec%d", format->precision);
 			(n < 0) ? (format->width -= 1) : (format->width);
 			ft_printwidth_fd(' ', format, format->precision);
 		}
@@ -68,7 +70,7 @@ int		ft_printnum_fd(long n, t_str_spec *format, int size)
 	else
 	{
 		ft_printnum_pre(n, format, size);
-		if (format->width > format->precision && format->precision >= size)
+		if (format->precision >= size)
 		{
 			(n < 0) ? (format->width -= 1) : (format->width);
 			ft_printwidth_fd(' ', format, format->precision);
@@ -90,15 +92,20 @@ int		ft_printnum_pre(long n, t_str_spec *format, int size)
 	{
 		ft_putchar_fd('-', 1);
 		tmp_num *= -1;
-		//tmp_size -= 1;
 		size -= 1;
 	}
 	if (format->precision == 0)
-		ft_printwidth_fd(' ', format, 0);
+	{
+		if (n == 0)
+			ft_printwidth_fd(' ', format, 0);
+		else
+			ft_printd_fd(tmp_num, format, tmp_size);
+	}
 	else
 	{
-		ft_printpre_fd('0', format, size); //
-		ft_printd_fd(tmp_num, format, tmp_size); //
+		//printf("start");
+		ft_printpre_fd('0', format, size);
+		ft_printd_fd(tmp_num, format, tmp_size);
 	}
 	return (format->printed);
 }
