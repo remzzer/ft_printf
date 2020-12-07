@@ -90,14 +90,15 @@ int		ft_printnum_pre(long n, t_str_spec *format, int size)
 	{
 		ft_putchar_fd('-', 1);
 		tmp_num *= -1;
-		tmp_size -= 1;
+		//tmp_size -= 1;
+		size -= 1;
 	}
 	if (format->precision == 0)
 		ft_printwidth_fd(' ', format, 0);
 	else
 	{
-		ft_printpre_fd('0', format, tmp_size);
-		ft_printd_fd(tmp_num, format, tmp_size);
+		ft_printpre_fd('0', format, size); //
+		ft_printd_fd(tmp_num, format, tmp_size); //
 	}
 	return (format->printed);
 }
