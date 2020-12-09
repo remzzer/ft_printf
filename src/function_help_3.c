@@ -46,9 +46,9 @@ int		ft_printwidth_x(char *str, t_str_spec *format, int length)
 	tmp_prec = format->precision;
 	if (format->left_align == 0)
 	{
-		if (format->zero != 0)
+		if (format->zero)
 			ft_printx_pre(str, format, length);
-		if (format->width > format->precision && format->precision >= length)
+		if (format->width >= format->precision && format->precision >= length)
 			ft_printwidth_fd(' ', format, tmp_prec);
 		else
 			ft_printwidth_fd(' ', format, length);
