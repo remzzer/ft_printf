@@ -57,8 +57,6 @@ int		ft_printnum_fd(long n, t_str_spec *format, int size)
 	{
 		if (format->width > format->precision && format->precision >= size)
 		{
-			//printf("width%d", format->width);
-			//printf("prec%d", format->precision);
 			(n < 0) ? (format->width -= 1) : (format->width);
 			ft_printwidth_fd(' ', format, format->precision);
 		}
@@ -103,7 +101,6 @@ int		ft_printnum_pre(long n, t_str_spec *format, int size)
 	}
 	else
 	{
-		//printf("start");
 		ft_printpre_fd('0', format, size);
 		ft_printd_fd(tmp_num, format, tmp_size);
 	}

@@ -184,7 +184,12 @@ int d = 2147483647;
 //res = ft_printf("%*.*s", 4, 2, "O");
 //res = printf("%*.*s", 4, 2, "O");
 //res = printf("%*.*s", -2, 4, "O");
-res = ft_printf("%*.*s", -2, 4, "O");
+//res = ft_printf("%.x", 0);
+res = printf("%.x", 0);
+
+//res = ft_printf("%.*x", 0, -1);
+//res = printf("%.*x", 0, -1);
+
 //res = printf("%.3s", "0");
 //res = printf("%12.12d", 42);
 printf("Result%d\n", res);
