@@ -50,7 +50,7 @@ int		ft_printwidth_x(char *str, t_str_spec *format, int length)
 			ft_printx_pre(str, format, length);
 		if (format->width >= format->precision && format->precision >= length)
 			ft_printwidth_fd(' ', format, tmp_prec);
-		else
+		else if (format->width > format->precision)
 			ft_printwidth_fd(' ', format, length);
 		if (format->zero == 0)
 			ft_printx_pre(str, format, length);
@@ -58,9 +58,9 @@ int		ft_printwidth_x(char *str, t_str_spec *format, int length)
 	else
 	{
 		ft_printx_pre(str, format, length);
-		if (format->width > format->precision && tmp_prec >= length)
+		if (format->width >= format->precision && tmp_prec >= length)
 			ft_printwidth_fd(' ', format, tmp_prec);
-		else
+		else if (format->width > format->precision)
 			ft_printwidth_fd(' ', format, length);
 	}
 	return (format->printed);
