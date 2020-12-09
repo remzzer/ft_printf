@@ -46,14 +46,14 @@ int		ft_printspace_fd(char c, t_str_spec *format, int len)
 			ft_printwidth_fd(c, format, len);
 			return (0);
 		}
-		while (size > len)
+		while (size - 1 > len && len < format->width)
 		{
 			ft_putchar_fd(c, 1);
 			size--;
 			len++;
 			format->printed++;
 		}
-		if (format->precision < len && size != 0)
+		if (format->precision < len  && size != 0)
 			len = format->precision;
 	}
 	ft_printwidth_fd(c, format, len);

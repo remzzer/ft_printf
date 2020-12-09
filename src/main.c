@@ -88,6 +88,11 @@ int		res = 0;
 //res = printf("Myprintf:%5c\n", 's'); //____s OK
 //res = ft_printf("Myprintf:%-2c\n", 'R'); //r OK
 //res = printf("Myprintf:%-2c\n", 'R'); //s OK
+//res = printf("lol:%-4c", 'a');
+//res = printf("-->|%-4.c|<--\n", 'c');
+//res = ft_printf("-->|%-4.c|<--\n", 'c');
+
+//res = ft_printf("lol:%-4c", 'a');
 
 //=====================str===================//
 
@@ -156,10 +161,35 @@ int		res = 0;
 //res = ft_printf("HEX:%x", 0);
 //res = printf("HEX:%x", 1680);
 //
-//
-//
-//
-int a = -4;
+//res = printf("-->|%-6.16s|<--\n", "str");
+//res = ft_printf("-->|%-6.16s|<--\n", "str");
+//res = printf("-->|%-5.16s|<--\n", "str");
+//res = ft_printf("-->|%-5.16s|<--\n", "str");
+
+
+
+//res = printf("-->|%-5s|<--\n", "str");
+//res = ft_printf("-->|%-5s|<--\n", "str");
+
+//res = printf("-->|%-6.*s|<--\n", -4, "str");
+//res = ft_printf("-->|%-6.*s|<--\n", -4, "str");
+
+//res = printf("-->|%-16s|<--\n", NULL);
+//res = ft_printf("-->|%-16s|<--\n", NULL);
+//res = printf("-->|%-16.16s|<--\n", NULL);
+//res = ft_printf("-->|%-16.16s|<--\n", NULL);
+
+int		a = 2;
+int		*b = &a;
+
+res = printf("-->|%-16.p|<--\n", b);
+res = ft_printf("-->|%-16.p|<--\n", b);
+res = ft_printf("-->|%-16.x|<--\n", 0);
+res = printf("-->|%-16.x|<--\n", 0);
+
+//res = printf("-->|%.p|<--\n", b);
+//res = ft_printf("-->|%.13p|<--\n", b);
+
 int i = 8;
 int j = -12;
 int k = 123456789;
@@ -194,7 +224,7 @@ int d = 2147483647;
 //res = ft_printf("%-*.*x", 2, 2, 4); //-01
 
 //res = printf("%-*.*x", 2, 3, 4); //-01
-res = ft_printf("%-*.*x", 2, 3, 4); //-01
+//res = ft_printf("%-*.*x", 2, 3, 4); //-01
 
 
 //res = ft_printf("%.*x", 0, -1);
