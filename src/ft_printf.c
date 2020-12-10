@@ -50,6 +50,8 @@ int		fix_struct(t_str_spec *format)
 {
 	if (format->precision < 0)
 		format->precision = -1;
+	if (format->zero == 1)
+		format->p_zero = 1;
 	if (format->zero == 1 && (format->precision != -1
 		|| format->left_align == 1))
 		format->zero = 0;

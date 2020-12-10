@@ -110,9 +110,7 @@ void	ft_print_p(va_list list, t_str_spec *format)
 	str_1 = ft_itoa_hex_2(value);
 	str_2 = ft_strjoin("0x", str_1);
 	length = ft_strlen(str_2);
-	if (format->precision != -1 && format->width == 0)
-		ft_printx_pre(str_2, format, length);
-	else if (format->precision != -1 && format->width != 0)
+	if (format->precision != -1 && format->width != 0)
 		ft_printwidth_x(str_2, format, length);
 	else
 		ft_printwidth_x(str_2, format, length);

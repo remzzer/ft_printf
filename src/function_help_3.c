@@ -26,14 +26,8 @@ int		ft_printx_pre(char *str, t_str_spec *format, int length)
 		ft_printwidth_fd('0', format, length);
 	if (format->precision == 0)
 	{
-		//if (*str == '0')
 		if (str[0] == '0' && str[1] == '\0')
-		{
-			//printf("look:%c", str[0]);
-			//printf("look+1:%c", str[1]);
-			//ft_putchar_fd(0, 1);
 			ft_printwidth_fd(' ', format, 0);
-		}
 		else
 			ft_printstr_fd(str, format);
 	}

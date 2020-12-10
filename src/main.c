@@ -179,16 +179,21 @@ int		res = 0;
 //res = printf("-->|%-16.16s|<--\n", NULL);
 //res = ft_printf("-->|%-16.16s|<--\n", NULL);
 
-int		a = 2;
+int		a = 123;
 int		*b = &a;
 
-res = printf("-->|%-16.p|<--\n", b);
-res = ft_printf("-->|%-16.p|<--\n", b);
-res = ft_printf("-->|%-16.x|<--\n", 0);
-res = printf("-->|%-16.x|<--\n", 0);
+//res = printf("-->|%-16.p|<--\n", b);
+//res = ft_printf("-->|%-16.p|<--\n", b);
+//res = ft_printf("-->|%-16.p|<--\n", b);
+//res = printf("-->|%-16.p|<--\n", b);
 
-//res = printf("-->|%.p|<--\n", b);
-//res = ft_printf("-->|%.13p|<--\n", b);
+//res = ft_printf("lol:%d", a);
+//res = printf("lol:%d", a);
+//res = printf("-->|%*p|<--\n",5,  b);
+//res = ft_printf("-->|%*p|<--\n", 5,  b);
+//res = ft_printf("-->|%-16.p|<--\n", b);
+//res = printf("-->|%-16.p|<--\n", b);
+
 
 int i = 8;
 int j = -12;
@@ -232,6 +237,73 @@ int d = 2147483647;
 
 //res = printf("%.3s", "0");
 //res = printf("%12.12d", 42);
+//
+//
+//
+//
+//
+//res = printf("-->|%-15p|<--\n", b);
+//res = ft_printf("-->|%-15p|<--\n", b);
+//res = printf("-->|%-16.p|<--\n", b);
+//res = ft_printf("-->|%-16.p|<--\n", b);
+//res = printf("-->|%-16p|<--\n", b);
+//res = ft_printf("-->|%-16p|<--\n", b);
+//res = printf("-->|%-16.p|<--\n", b);
+//res = ft_printf("-->|%16.p|<--\n", b);
+//res = printf("-->|%16.p|<--\n", b);
+//res = ft_printf("-->|%-16.p|<--\n", b);
+//
+
+//res = printf("-->|%-4.%|<--\n");
+//res = ft_printf("-->|%-4.%|<--\n");
+//res = printf("-->|%1.%|<--\n");
+//res = ft_printf("-->|%1.%|<--\n");
+
+//res = printf("-->|%04%|<--\n");
+//res = ft_printf("-->|%04%|<--\n");
+//res = printf("-->|%--4.%|<--\n");
+//res = ft_printf("-->|%--4.%|<--\n");
+//
+//
+//
+//
+//res = printf("-->|%*.%|<--\n", -1);
+//res = ft_printf("-->|%*.%|<--\n", -1);
+
+//res = printf("-->|%*.%|<--\n", 0);
+//res = ft_printf("-->|%*.%|<--\n", 0);
+//res = printf("-->|%*.%|<--\n", 1);
+//res = ft_printf("-->|%*.%|<--\n", 1);
+/*
+
+res = printf("-->|%*.%|<--\n", 2); //
+res = ft_printf("-->|%*.%|<--\n", 2); //
+
+//printf("-->|%*.%|<--\n", 3);
+
+printf("-->|%04.3%|<--\n");
+printf("-->|%04.4%|<--\n");
+printf("-->|%04%|<--\n");
+printf("-->|%--4.%|<--\n");
+printf("-->|%--4.*%|<--\n", -4);
+*/ //P_CASES
+
+printf("-->|%-15p|<--\n", b);
+printf("-->|%-16.p|<--\n", b);
+printf("-->|%-16p|<--\n", b);
+printf("-->|%-16.p|<--\n", b);
+printf("-->|%-16.p|<--\n", b);
+
+/*
+(tail)
++Printf("-->|%-15.p|<--\n", p);	==>	-->|0x0            |<--
+ Printf("-->|%-15p|<--\n", p);	==>	-->|0x0            |<--
+-Printf("-->|%-16.p|<--\n", p);	==>	-->|0x              |<--
++Printf("-->|%-16.p|<--\n", p);	==>	-->|0x0             |<--
+ Printf("-->|%-16p|<--\n", p);	==>	-->|0x0             |<--
+*/
+
+
 printf("Result%d\n", res);
 	return (0);
 }

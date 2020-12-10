@@ -115,6 +115,5 @@ int		ft_atoi_n(const char *str, t_str_spec *format)
 		i++;
 		format->index++;
 	}
-	//format->index--;
 	return (neg * res);
 }

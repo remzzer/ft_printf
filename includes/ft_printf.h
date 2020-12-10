@@ -21,9 +21,10 @@
 typedef struct	s_data_store{
 	int		width;
 	int		precision;
-	int		no_prec;
+//	int		no_prec;
 	int		left_align;
 	int		zero;
+	int		p_zero;
 	int		printed;
 	int		index;
 	int		type_flags;
