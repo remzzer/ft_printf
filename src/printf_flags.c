@@ -107,13 +107,20 @@ void	ft_print_p(va_list list, t_str_spec *format)
 	int				length;
 
 	value = va_arg(list, unsigned long);
-	str_1 = ft_itoa_hex_2(value);
-	str_2 = ft_strjoin("0x", str_1);
-	length = ft_strlen(str_2);
-	if (format->precision != -1 && format->width != 0)
-		ft_printwidth_x(str_2, format, length);
+	if (value == 0 && format->precision == 0)
+	{
+		if (format->width == 0)
+			ft_printstr_fd("0x", format);
+		else
+			ft_printwidth_x("0x", format, 2);
+	}
 	else
+	{
+		str_1 = ft_itoa_hex_2(value);
+		str_2 = ft_strjoin("0x", str_1);
+		length = ft_strlen(str_2);
 		ft_printwidth_x(str_2, format, length);
-	free(str_1);
-	free(str_2);
+		free(str_1);
+		free(str_2);
+	}
 }

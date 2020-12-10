@@ -53,7 +53,7 @@ int		ft_printspace_fd(char c, t_str_spec *format, int len)
 			len++;
 			format->printed++;
 		}
-		if (format->precision < len  && size != 0)
+		if (format->precision < len && size != 0)
 			len = format->precision;
 	}
 	ft_printwidth_fd(c, format, len);
